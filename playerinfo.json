@@ -1,0 +1,3175 @@
+{
+   "IFPA" : {
+      "10190" : "Nathan Stellhorn",
+      "10819" : "Phil Piwonka",
+      "10919" : "Austin Arlitt",
+      "11546" : "Andy Hatch",
+      "12001" : "David Latimer",
+      "12360" : "Michael Warfield",
+      "12716" : "Heather Willott",
+      "12961" : "Bo Kellogg",
+      "13383" : "Jeff Rogers",
+      "13577" : "Nick Taseris",
+      "13738" : "Kellan Smith",
+      "1380" : "Julie Gray",
+      "14383" : "Alex Tada",
+      "14390" : "Tony Bacus",
+      "14503" : "Jeremy Edwards",
+      "14840" : "Jeff Debock",
+      "14890" : "Matt Sarnoff",
+      "15560" : "Evan McBride",
+      "15561" : "Dan Danger",
+      "15562" : "Cory Moormeier",
+      "16302" : "Philip Pinette",
+      "1651" : "Andrew Nunes",
+      "16570" : "Geoff Simons",
+      "16574" : "Matt Wolfe",
+      "1665" : "John Lim",
+      "16787" : "Kayla Greet",
+      "16788" : "John McAllister",
+      "16802" : "Michelle Pfeiffer",
+      "1687" : "Mike Poetzel",
+      "1698" : "Nigel Colbert",
+      "1710" : "Sherry Smith",
+      "17104" : "Hannah Hatch",
+      "17127" : "Zac Petersen",
+      "17394" : "Paul White",
+      "17535" : "Daniel Salo",
+      "17537" : "Flash Haze",
+      "17604" : "Hayden McCabe",
+      "17630" : "Challisa Parisi",
+      "17701" : "Paul Williams WA",
+      "17702" : "Mark Williams WA",
+      "18283" : "Matthew Puvogel",
+      "18829" : "Max Stiles",
+      "18884" : "Justin Blau",
+      "19323" : "Jesse Chappelle",
+      "19324" : "Matt Lauro",
+      "19478" : "Todd Rafacz",
+      "19491" : "Frank Haltom",
+      "19493" : "Ramsey Sierra",
+      "19497" : "Luke Camarda",
+      "20057" : "Cameron Austgen",
+      "20058" : "Frank Sposaro",
+      "20059" : "Matt Bollinger",
+      "20060" : "Age Diaz",
+      "20094" : "Eyehole Man",
+      "20392" : "Laura Hale",
+      "20534" : "Sam Atlas",
+      "20712" : "Danny Rashid",
+      "2094" : "Jorge Romero",
+      "21061" : "Sam Stiles",
+      "21132" : "Kirsten Wohlrab",
+      "21270" : "James Daniels",
+      "21365" : "Tony Mitchum",
+      "21367" : "Nina Ricciardi",
+      "21369" : "Rob Atlas",
+      "21384" : "John Robinson WA",
+      "21493" : "Corbin Sheffels",
+      "21539" : "Christel Macabeo",
+      "21560" : "Mike Corbett WA",
+      "21615" : "Blake Mitchell",
+      "21896" : "Justin Hugeback",
+      "21897" : "Ari Golding",
+      "22330" : "Amber Marie Simon",
+      "22822" : "Rachel Helm",
+      "22839" : "Sean Carlson",
+      "22985" : "Alexa Philbeck",
+      "22995" : "Mike Pantoliano",
+      "23040" : "Matt Golden",
+      "23614" : "David Rauschenberg",
+      "23896" : "Matt Watts",
+      "23901" : "Altwin Hawksford",
+      "23996" : "Matt Anderson",
+      "23997" : "Eric Morales",
+      "24007" : "Phil Harmonic",
+      "24011" : "Mika Rollin",
+      "24015" : "Shawn Chamberlain",
+      "24018" : "Jared Gamble",
+      "24208" : "Terrence Vaccaro",
+      "24519" : "Jonathan Hawthorne",
+      "24525" : "Travis Maisch",
+      "24659" : "Dennis Ayres",
+      "24660" : "Alex Singleterry",
+      "24744" : "Marilyn Braighboy",
+      "24748" : "Eric Dushoff",
+      "24907" : "Jamie Winsor",
+      "25521" : "Joshua Bartlett",
+      "25523" : "Chris Bronson",
+      "25524" : "Buzz Johnson",
+      "25563" : "Katie Janis",
+      "25650" : "Sophie Spickard",
+      "2576" : "Raymond Davidson",
+      "2585" : "Steven Ackley",
+      "25955" : "Peter Schatzer",
+      "2599" : "Rodney Olsen",
+      "26328" : "Lefty Sitaras",
+      "26374" : "Jon Salzman",
+      "26408" : "Bethany Brakemeyer",
+      "26409" : "Robin Moore",
+      "26410" : "Tyler Lingwall",
+      "27226" : "Jeff Sawyer",
+      "27227" : "Lauren Aquino",
+      "27230" : "Joshua Barnes",
+      "27323" : "Mark McClure",
+      "27493" : "Chelsie Hulka",
+      "27503" : "Clayton Stetz",
+      "27507" : "Chelsey Oedewaldt",
+      "28813" : "Jordan Semrow",
+      "28877" : "Alan Wiley",
+      "29083" : "Chris Chinn",
+      "29143" : "Sam Snyder",
+      "30014" : "Amber Pepin-Turbide",
+      "30016" : "Daniel Miller WA",
+      "30041" : "Joshua Francis",
+      "30042" : "Rhett Pearson",
+      "30152" : "Gilbert Sandejas",
+      "30396" : "Michael Adcock",
+      "31623" : "Meghan West",
+      "31625" : "Brooke Borcherding",
+      "31725" : "Taylor Minter",
+      "31731" : "Brett Wolfe",
+      "31811" : "Katie Eichenberger",
+      "31959" : "Danielle Crowson",
+      "31961" : "Nic Crowson",
+      "32147" : "Amberle Houston",
+      "3238" : "Maka Honig",
+      "3271" : "Nycole Hyatt",
+      "3276" : "Elijah Nelson",
+      "32819" : "John Garnett",
+      "3287" : "Erik Gust",
+      "3289" : "Gordon Ornelas",
+      "32895" : "Eric Csakany",
+      "33031" : "Ryan Newstrum",
+      "33061" : "Tenee Brockington",
+      "33062" : "Dwayne Collins",
+      "33167" : "Michael Darigol",
+      "33168" : "Jason Heitt",
+      "33169" : "Claire Burke",
+      "3317" : "Brad Hayden",
+      "33171" : "Richard Scott",
+      "33174" : "Whitney Zissou",
+      "33538" : "Anne Swanson",
+      "34073" : "Evan Adkins",
+      "34108" : "William Scott Jordan",
+      "34115" : "Isaac Harney",
+      "34117" : "Nate Cantor",
+      "34371" : "Sean Mcdonald",
+      "34399" : "Peter Olive",
+      "34418" : "Tyler Moore",
+      "34433" : "Craig R Jones",
+      "34526" : "Benton Seybold",
+      "34942" : "Andrea Mas",
+      "35080" : "Zach Amador",
+      "35157" : "Randall Olson",
+      "35492" : "Josh Hornbaker",
+      "35499" : "Aaron Donny-Clark",
+      "35662" : "Kylie Waibel",
+      "35776" : "Brad Crowden",
+      "35952" : "James Frost-Winn",
+      "36801" : "Brian Geiszler",
+      "36802" : "Robbie Finnigan",
+      "36803" : "Tim Uomoto",
+      "36832" : "Danae Hackett",
+      "37159" : "Bryn Bomar",
+      "37207" : "Brittany Semrow",
+      "37357" : "Patrick Law",
+      "37360" : "William Gordon",
+      "37362" : "Keenan Goodall",
+      "37391" : "Daniel Scott Clark",
+      "37557" : "Kay Kay",
+      "38315" : "Mandie Moore",
+      "38325" : "Stuart Young",
+      "38327" : "Chris Kimbrough",
+      "38462" : "Brian Hyder",
+      "38463" : "Jesse Mullene",
+      "39078" : "Nick Gibson",
+      "39139" : "Todd Larsen",
+      "39188" : "Tim McCool",
+      "39457" : "Stephanie Sposaro",
+      "39458" : "Anthony Welters",
+      "39581" : "Fernando Pizarro",
+      "39582" : "Jared Baldridge",
+      "39585" : "Daniel Reddin",
+      "39598" : "Jeremy Jones",
+      "39967" : "Derek Lee",
+      "40425" : "David Donner",
+      "40652" : "Erin Shadensack",
+      "40794" : "Sandy Magallanes",
+      "40838" : "Stanlo Slasinski",
+      "40841" : "Mitch Anderson",
+      "40843" : "Matt Salmon",
+      "40883" : "Matt Slater",
+      "40884" : "Steph Hanlon",
+      "40885" : "Matthew Levi Tate",
+      "41036" : "Joshua DeGarmo",
+      "41037" : "Greg Balducci",
+      "41038" : "Will Kirkland",
+      "41039" : "Kellan Kirkland",
+      "41046" : "Miguel Ferry",
+      "41196" : "Dan Crowdus",
+      "41320" : "Jesse Mercury",
+      "4139" : "Tim Tournay",
+      "41500" : "David Griffin",
+      "41581" : "Nick Pernisco",
+      "41582" : "Richie Terry",
+      "41585" : "Darin Lange",
+      "41600" : "Dan Mclane",
+      "41603" : "Ethan Johnson",
+      "41609" : "Atomic Sita",
+      "41611" : "Michelle Jones",
+      "41764" : "Jessica Dengler",
+      "42014" : "Isaac Kaplan-Woolner",
+      "42077" : "Ari Stinson",
+      "42216" : "Kolby Krie",
+      "42222" : "Karla Rivers",
+      "42233" : "Stacy Wilson",
+      "42335" : "Brenton Ash",
+      "42480" : "Randy Huynh",
+      "42481" : "Tressa Points",
+      "42482" : "Abdulla Syed",
+      "42483" : "Neil Kubath",
+      "42813" : "Laura Bodine",
+      "43204" : "Umboon Moore",
+      "43627" : "Timm Shere",
+      "43771" : "Chelsea Rakonza",
+      "43772" : "Stephen Rakonza",
+      "44230" : "Bryan Eastman",
+      "44231" : "Sarah Ledray",
+      "44242" : "Justina Russo",
+      "44243" : "Rick Simpson",
+      "44388" : "Casey Jones",
+      "44541" : "Heather Thompson",
+      "44544" : "Sean Shypula",
+      "44631" : "Steven Brewer",
+      "44839" : "Nathan Krause",
+      "44906" : "Emma Frost",
+      "45375" : "Dickie Hornaman",
+      "45438" : "Chris Tinney",
+      "45585" : "James Thompson",
+      "45715" : "Corey Barreras",
+      "45876" : "Anthony McCammant",
+      "45880" : "Bre Lloyd",
+      "45885" : "Bridgette Thimsen",
+      "45886" : "Mark Daddy",
+      "45913" : "Mark Rueter",
+      "46367" : "Dingo Freid",
+      "46897" : "Thom Geibel",
+      "47061" : "Lauren Aiello",
+      "47239" : "Chris Harrington",
+      "47266" : "Sid Miner",
+      "47285" : "Vincent Sperrazza",
+      "47538" : "Lyn Cason",
+      "47775" : "Jacob Bevan",
+      "47780" : "Dominique Shadduck",
+      "4786" : "Sean Detore",
+      "48095" : "Honi Harrison",
+      "48096" : "Max Davidoff",
+      "48097" : "Jay Sweeney",
+      "48099" : "Maureen Hendrix",
+      "48168" : "Harold Noble",
+      "48187" : "George Kent",
+      "48188" : "Richard Pugh",
+      "48190" : "Lucas Arias",
+      "48191" : "Stephen Rarick",
+      "48487" : "Kelsie Sherman Hall",
+      "48639" : "Algird Lisaius",
+      "48642" : "Lucy Hoffman",
+      "48646" : "Pat May",
+      "49079" : "Brodi B",
+      "49080" : "Tim Collins",
+      "49083" : "Ashley Weaver",
+      "49094" : "Jarrod Job",
+      "49098" : "Mark Demmel",
+      "49156" : "Josh Anderson",
+      "49363" : "Neil Oney",
+      "49364" : "Jesse Labbe",
+      "49472" : "Emily Tower",
+      "49477" : "Molly Foster",
+      "49478" : "Janet Owen",
+      "49529" : "Sean Irby",
+      "49667" : "Tyler Morgan",
+      "49668" : "Arthur Alvarez",
+      "49740" : "Michael Rausch",
+      "49952" : "Philip Joupperi",
+      "50037" : "Michelle Duskey",
+      "50073" : "Rita Perez",
+      "50081" : "Jake Hei",
+      "50126" : "Emily Beirne",
+      "50324" : "Alan Woodyard",
+      "50373" : "Colin Avrech",
+      "50374" : "Clayton Michael",
+      "50869" : "Jon Shaiman",
+      "51260" : "Allison Mcclure",
+      "51278" : "Tyler Dellinger",
+      "51575" : "Danielle Wilcox",
+      "51823" : "Ryan Penrod",
+      "51832" : "Nate Dominguez",
+      "51833" : "Tyler Esselstrom",
+      "51863" : "Tristan Mott",
+      "51933" : "Sarah Decory",
+      "52423" : "Ashley Negron",
+      "52531" : "Fabian Benabente",
+      "52563" : "Ryan Tupper",
+      "52600" : "Jay Sowell",
+      "52614" : "Vanessa Ish",
+      "52617" : "Sarah Hager",
+      "52722" : "Lawrence Campbell",
+      "52791" : "Andy Yarritu",
+      "52792" : "Sean Gallagher",
+      "52943" : "Jeremiah Ratledge",
+      "53106" : "Mackenzie Meinhordt",
+      "53107" : "Lenny Jackson",
+      "53615" : "Max Levine",
+      "53620" : "Ryan Henak",
+      "53621" : "Nif Ward",
+      "53806" : "Greg Gramenz",
+      "53964" : "Jackson Ryan",
+      "54" : "Dave Stewart",
+      "54117" : "Ren Logan",
+      "54256" : "Diego Medrano",
+      "54257" : "Emily Gibian",
+      "54262" : "Ally Christofferson",
+      "54608" : "Gavin Carrol",
+      "54850" : "Tomar Schell",
+      "54914" : "Steven Mendez",
+      "55787" : "Jeff Dillaman",
+      "56113" : "Michael Zuino",
+      "56115" : "Ash Landers",
+      "56594" : "Joe Ricci",
+      "56657" : "Corey Klier",
+      "56658" : "Oliver Kohut",
+      "56705" : "Lina Davidson",
+      "56775" : "Skye Fleming",
+      "56969" : "Megan Czahar",
+      "57263" : "Anthony Gragnani",
+      "57265" : "James Brown",
+      "57266" : "Emerson Gelb",
+      "57385" : "Trina Wheatley",
+      "57414" : "Aaron Miller WA",
+      "57423" : "Bianca Coleman",
+      "57448" : "Andy Glass",
+      "57702" : "Phillip Dodt",
+      "57867" : "Nikki Davis",
+      "58059" : "Timothy Kitchen",
+      "58131" : "Kirk Zehrung",
+      "58241" : "Carl Davis",
+      "58391" : "Craig Cainkar",
+      "58686" : "Johnny Hill",
+      "59031" : "James Orrell",
+      "609" : "Kevin Lessig",
+      "611" : "Andy Burton",
+      "614" : "Jason Hatch",
+      "6142" : "Brian Chesbrough",
+      "6143" : "Jarrett Gaddy",
+      "6160" : "Bobby Conover",
+      "6411" : "Keith Wolfe",
+      "6823" : "Matt Cohn",
+      "6835" : "Alex Skinner",
+      "6837" : "Sagel Frazier",
+      "7073" : "Aaron Bendickson",
+      "711" : "Jeff Gagnon",
+      "7794" : "Mike Norman",
+      "7987" : "Adam Chesbrough",
+      "8266" : "Andre Needham",
+      "8645" : "Aaron McAbee",
+      "8893" : "Matt Galbraith",
+      "8897" : "George Lally",
+      "9141" : "Sergey Posrednikov",
+      "9142" : "Heather Loudon",
+      "9226" : "Jeff Anderson WA",
+      "9235" : "Jodine Hatfield",
+      "9363" : "Matthew Ellis",
+      "9383" : "Aaron Garberding",
+      "9403" : "Lauren Shepherd",
+      "9595" : "Jason Trojan",
+      "9597" : "Heather Brammer"
+   },
+   "dateupdated" : {
+      "IFPA" : "2018-02-01",
+      "MP" : "2018-01-24"
+   },
+   "players" : {
+      "Aaron Anderson" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Aaron Bendickson" : {
+         "IFPA_ID" : "7073",
+         "IFPA_RANK" : "904",
+         "IPR" : 4,
+         "MP_LB" : 1432
+      },
+      "Aaron Donny-Clark" : {
+         "IFPA_ID" : "35499",
+         "IFPA_RANK" : "15560",
+         "IPR" : 2,
+         "MP_LB" : 1295
+      },
+      "Aaron Erisman" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1292
+      },
+      "Aaron Garberding" : {
+         "IFPA_ID" : "9383",
+         "IFPA_RANK" : "559",
+         "IPR" : 5,
+         "MP_LB" : 1574
+      },
+      "Aaron Ling" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1162
+      },
+      "Aaron McAbee" : {
+         "IFPA_ID" : "8645",
+         "IFPA_RANK" : "4334",
+         "IPR" : 2,
+         "MP_LB" : 1243
+      },
+      "Aaron Miller WA" : {
+         "IFPA_ID" : "57414",
+         "IFPA_RANK" : "11269",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "Abdulla Syed" : {
+         "IFPA_ID" : "42482",
+         "IFPA_RANK" : "21603",
+         "IPR" : 1,
+         "MP_LB" : 1253
+      },
+      "Adam Aly" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Adam Chesbrough" : {
+         "IFPA_ID" : "7987",
+         "IFPA_RANK" : "3344",
+         "IPR" : 2,
+         "MP_LB" : 1339
+      },
+      "Age Diaz" : {
+         "IFPA_ID" : "20060",
+         "IFPA_RANK" : "6327",
+         "IPR" : 1,
+         "MP_LB" : 1234
+      },
+      "Alan Wiley" : {
+         "IFPA_ID" : "28877",
+         "IFPA_RANK" : "879",
+         "IPR" : 4,
+         "MP_LB" : 1478
+      },
+      "Alan Woodyard" : {
+         "IFPA_ID" : "50324",
+         "IFPA_RANK" : "7961",
+         "IPR" : 3,
+         "MP_LB" : 1391
+      },
+      "Alex Hart" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 3,
+         "MP_LB" : 1363
+      },
+      "Alex Hawley" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1236
+      },
+      "Alex Hoganson" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Alex Singleterry" : {
+         "IFPA_ID" : "24660",
+         "IFPA_RANK" : "744",
+         "IPR" : 4,
+         "MP_LB" : 1482
+      },
+      "Alex Skinner" : {
+         "IFPA_ID" : "6835",
+         "IFPA_RANK" : "4156",
+         "IPR" : 5,
+         "MP_LB" : 1532
+      },
+      "Alex Tada" : {
+         "IFPA_ID" : "14383",
+         "IFPA_RANK" : "125",
+         "IPR" : 6,
+         "MP_LB" : 1551
+      },
+      "Alexa Philbeck" : {
+         "IFPA_ID" : "22985",
+         "IFPA_RANK" : "923",
+         "IPR" : 4,
+         "MP_LB" : 1497
+      },
+      "Algird Lisaius" : {
+         "IFPA_ID" : "48639",
+         "IFPA_RANK" : "3164",
+         "IPR" : 4,
+         "MP_LB" : 1446
+      },
+      "Alicia Seftel" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1214
+      },
+      "Allison Mcclure" : {
+         "IFPA_ID" : "51260",
+         "IFPA_RANK" : "4265",
+         "IPR" : 3,
+         "MP_LB" : 1366
+      },
+      "Ally Christofferson" : {
+         "IFPA_ID" : "54262",
+         "IFPA_RANK" : "8790",
+         "IPR" : 2,
+         "MP_LB" : 1278
+      },
+      "Altwin Hawksford" : {
+         "IFPA_ID" : "23901",
+         "IFPA_RANK" : "2062",
+         "IPR" : 3,
+         "MP_LB" : 1399
+      },
+      "Alyson Rae" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1258
+      },
+      "Amber Marie Simon" : {
+         "IFPA_ID" : "22330",
+         "IFPA_RANK" : "6136",
+         "IPR" : 3,
+         "MP_LB" : 1410
+      },
+      "Amber Pepin-Turbide" : {
+         "IFPA_ID" : "30014",
+         "IFPA_RANK" : "6132",
+         "IPR" : 2,
+         "MP_LB" : 1306
+      },
+      "Amberle Houston" : {
+         "IFPA_ID" : "32147",
+         "IFPA_RANK" : "31552",
+         "IPR" : 1,
+         "MP_LB" : 1147
+      },
+      "Andre Needham" : {
+         "IFPA_ID" : "8266",
+         "IFPA_RANK" : "12112",
+         "IPR" : 4,
+         "MP_LB" : 1464
+      },
+      "Andrea Mas" : {
+         "IFPA_ID" : "34942",
+         "IFPA_RANK" : "19826",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "Andrew Bolt" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1307
+      },
+      "Andrew Nunes" : {
+         "IFPA_ID" : "1651",
+         "IFPA_RANK" : "1129",
+         "IPR" : 4,
+         "MP_LB" : 1465
+      },
+      "Andy Burton" : {
+         "IFPA_ID" : "611",
+         "IFPA_RANK" : "365",
+         "IPR" : 5,
+         "MP_LB" : 1556
+      },
+      "Andy Glass" : {
+         "IFPA_ID" : "57448",
+         "IFPA_RANK" : "15124",
+         "IPR" : 2,
+         "MP_LB" : 1314
+      },
+      "Andy Hatch" : {
+         "IFPA_ID" : "11546",
+         "IFPA_RANK" : "10866",
+         "IPR" : 1,
+         "MP_LB" : 1215
+      },
+      "Andy Yarritu" : {
+         "IFPA_ID" : "52791",
+         "IFPA_RANK" : "5022",
+         "IPR" : 3,
+         "MP_LB" : 1415
+      },
+      "Anne Swanson" : {
+         "IFPA_ID" : "33538",
+         "IFPA_RANK" : "12352",
+         "IPR" : 1,
+         "MP_LB" : 1198
+      },
+      "Anthony Ciampi" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1280
+      },
+      "Anthony Gragnani" : {
+         "IFPA_ID" : "57263",
+         "IFPA_RANK" : "27405",
+         "IPR" : 2,
+         "MP_LB" : 1329
+      },
+      "Anthony McCammant" : {
+         "IFPA_ID" : "45876",
+         "IFPA_RANK" : "2446",
+         "IPR" : 3,
+         "MP_LB" : 1440
+      },
+      "Anthony Welters" : {
+         "IFPA_ID" : "39458",
+         "IFPA_RANK" : "1607",
+         "IPR" : 3,
+         "MP_LB" : 1404
+      },
+      "Ari Golding" : {
+         "IFPA_ID" : "21897",
+         "IFPA_RANK" : "5262",
+         "IPR" : 3,
+         "MP_LB" : 1370
+      },
+      "Ari Stinson" : {
+         "IFPA_ID" : "42077",
+         "IFPA_RANK" : "20077",
+         "IPR" : 2,
+         "MP_LB" : 1268
+      },
+      "Arthur Alvarez" : {
+         "IFPA_ID" : "49668",
+         "IFPA_RANK" : "12548",
+         "IPR" : 1,
+         "MP_LB" : 1224
+      },
+      "Ash Landers" : {
+         "IFPA_ID" : "56115",
+         "IFPA_RANK" : "10910",
+         "IPR" : 2,
+         "MP_LB" : 1289
+      },
+      "Ashley Negron" : {
+         "IFPA_ID" : "52423",
+         "IFPA_RANK" : "12425",
+         "IPR" : 1,
+         "MP_LB" : 1124
+      },
+      "Ashley Weaver" : {
+         "IFPA_ID" : "49083",
+         "IFPA_RANK" : "2300",
+         "IPR" : 4,
+         "MP_LB" : 1467
+      },
+      "Atomic Sita" : {
+         "IFPA_ID" : "41609",
+         "IFPA_RANK" : "4269",
+         "IPR" : 3,
+         "MP_LB" : 1366
+      },
+      "Atticus Wiman" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1238
+      },
+      "Austin Arlitt" : {
+         "IFPA_ID" : "10919",
+         "IFPA_RANK" : "2178",
+         "IPR" : 4,
+         "MP_LB" : 1474
+      },
+      "Benton Seybold" : {
+         "IFPA_ID" : "34526",
+         "IFPA_RANK" : "987",
+         "IPR" : 4,
+         "MP_LB" : 1448
+      },
+      "Bethany Brakemeyer" : {
+         "IFPA_ID" : "26408",
+         "IFPA_RANK" : "5029",
+         "IPR" : 2,
+         "MP_LB" : 1349
+      },
+      "Bianca Coleman" : {
+         "IFPA_ID" : "57423",
+         "IFPA_RANK" : "20932",
+         "IPR" : 1,
+         "MP_LB" : 1222
+      },
+      "Blake Butler" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1280
+      },
+      "Blake Mitchell" : {
+         "IFPA_ID" : "21615",
+         "IFPA_RANK" : "313",
+         "IPR" : 5,
+         "MP_LB" : 1562
+      },
+      "Bo Kellogg" : {
+         "IFPA_ID" : "12961",
+         "IFPA_RANK" : "1574",
+         "IPR" : 4,
+         "MP_LB" : 1500
+      },
+      "Bobby Conover" : {
+         "IFPA_ID" : "6160",
+         "IFPA_RANK" : "2084",
+         "IPR" : 5,
+         "MP_LB" : 1565
+      },
+      "Brad Crowden" : {
+         "IFPA_ID" : "35776",
+         "IFPA_RANK" : "8965",
+         "IPR" : 2,
+         "MP_LB" : 1303
+      },
+      "Brad Hayden" : {
+         "IFPA_ID" : "3317",
+         "IFPA_RANK" : "5985",
+         "IPR" : 2,
+         "MP_LB" : 1339
+      },
+      "Bre Lloyd" : {
+         "IFPA_ID" : "45880",
+         "IFPA_RANK" : "2601",
+         "IPR" : 3,
+         "MP_LB" : 1368
+      },
+      "Brent Longenecker" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1299
+      },
+      "Brenton Ash" : {
+         "IFPA_ID" : "42335",
+         "IFPA_RANK" : "14583",
+         "IPR" : 1,
+         "MP_LB" : 1064
+      },
+      "Brett Wolfe" : {
+         "IFPA_ID" : "31731",
+         "IFPA_RANK" : "2938",
+         "IPR" : 3,
+         "MP_LB" : 1440
+      },
+      "Brian Chesbrough" : {
+         "IFPA_ID" : "6142",
+         "IFPA_RANK" : "1669",
+         "IPR" : 5,
+         "MP_LB" : 1544
+      },
+      "Brian Geiszler" : {
+         "IFPA_ID" : "36801",
+         "IFPA_RANK" : "25858",
+         "IPR" : 1,
+         "MP_LB" : 1094
+      },
+      "Brian Hyder" : {
+         "IFPA_ID" : "38462",
+         "IFPA_RANK" : "3040",
+         "IPR" : 5,
+         "MP_LB" : 1564
+      },
+      "Brian Wilka" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Bridgette Thimsen" : {
+         "IFPA_ID" : "45885",
+         "IFPA_RANK" : "3003",
+         "IPR" : 3,
+         "MP_LB" : 1434
+      },
+      "Brittany Semrow" : {
+         "IFPA_ID" : "37207",
+         "IFPA_RANK" : "10106",
+         "IPR" : 2,
+         "MP_LB" : 1295
+      },
+      "Brodi B" : {
+         "IFPA_ID" : "49079",
+         "IFPA_RANK" : "3354",
+         "IPR" : 2,
+         "MP_LB" : 1350
+      },
+      "Brodie Somers" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1153
+      },
+      "Brooke Borcherding" : {
+         "IFPA_ID" : "31625",
+         "IFPA_RANK" : "1742",
+         "IPR" : 4,
+         "MP_LB" : 1463
+      },
+      "Bryan Eastman" : {
+         "IFPA_ID" : "44230",
+         "IFPA_RANK" : "1316",
+         "IPR" : 4,
+         "MP_LB" : 1497
+      },
+      "Bryn Bomar" : {
+         "IFPA_ID" : "37159",
+         "IFPA_RANK" : "9190",
+         "IPR" : 3,
+         "MP_LB" : 1355
+      },
+      "Buzz Johnson" : {
+         "IFPA_ID" : "25524",
+         "IFPA_RANK" : "4744",
+         "IPR" : 2,
+         "MP_LB" : 1273
+      },
+      "Cameron Austgen" : {
+         "IFPA_ID" : "20057",
+         "IFPA_RANK" : "14628",
+         "IPR" : 4,
+         "MP_LB" : 1450
+      },
+      "Cameron Dean" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1245
+      },
+      "Carl Davis" : {
+         "IFPA_ID" : "58241",
+         "IFPA_RANK" : "19480",
+         "IPR" : 2,
+         "MP_LB" : 1273
+      },
+      "Casey Jones" : {
+         "IFPA_ID" : "44388",
+         "IFPA_RANK" : "2673",
+         "IPR" : 3,
+         "MP_LB" : 1367
+      },
+      "Challisa Parisi" : {
+         "IFPA_ID" : "17630",
+         "IFPA_RANK" : "2401",
+         "IPR" : 3,
+         "MP_LB" : 1421
+      },
+      "Chelsea Rakonza" : {
+         "IFPA_ID" : "43771",
+         "IFPA_RANK" : "7943",
+         "IPR" : 2,
+         "MP_LB" : 1330
+      },
+      "Chelsey Oedewaldt" : {
+         "IFPA_ID" : "27507",
+         "IFPA_RANK" : "2399",
+         "IPR" : 3,
+         "MP_LB" : 1356
+      },
+      "Chelsie Hulka" : {
+         "IFPA_ID" : "27493",
+         "IFPA_RANK" : "2034",
+         "IPR" : 4,
+         "MP_LB" : 1473
+      },
+      "Chico Santana" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 3,
+         "MP_LB" : 1414
+      },
+      "Chris Bronson" : {
+         "IFPA_ID" : "25523",
+         "IFPA_RANK" : "2567",
+         "IPR" : 3,
+         "MP_LB" : 1356
+      },
+      "Chris Chinn" : {
+         "IFPA_ID" : "29083",
+         "IFPA_RANK" : "41",
+         "IPR" : 6,
+         "MP_LB" : 1642
+      },
+      "Chris Harrington" : {
+         "IFPA_ID" : "47239",
+         "IFPA_RANK" : "14884",
+         "IPR" : 2,
+         "MP_LB" : 1336
+      },
+      "Chris Kimbrough" : {
+         "IFPA_ID" : "38327",
+         "IFPA_RANK" : "3112",
+         "IPR" : 3,
+         "MP_LB" : 1424
+      },
+      "Chris Noerr" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1295
+      },
+      "Chris Tinney" : {
+         "IFPA_ID" : "45438",
+         "IFPA_RANK" : "5050",
+         "IPR" : 4,
+         "MP_LB" : 1445
+      },
+      "Christel Macabeo" : {
+         "IFPA_ID" : "21539",
+         "IFPA_RANK" : "2169",
+         "IPR" : 3,
+         "MP_LB" : 1223
+      },
+      "Claire Burke" : {
+         "IFPA_ID" : "33169",
+         "IFPA_RANK" : "3881",
+         "IPR" : 3,
+         "MP_LB" : 1393
+      },
+      "Clayton Michael" : {
+         "IFPA_ID" : "50374",
+         "IFPA_RANK" : "5074",
+         "IPR" : 2,
+         "MP_LB" : 1316
+      },
+      "Clayton Stetz" : {
+         "IFPA_ID" : "27503",
+         "IFPA_RANK" : "1728",
+         "IPR" : 3,
+         "MP_LB" : 1414
+      },
+      "Colin Avrech" : {
+         "IFPA_ID" : "50373",
+         "IFPA_RANK" : "9679",
+         "IPR" : 1,
+         "MP_LB" : 1247
+      },
+      "Corbin Sheffels" : {
+         "IFPA_ID" : "21493",
+         "IFPA_RANK" : "1186",
+         "IPR" : 4,
+         "MP_LB" : 1499
+      },
+      "Corey Barreras" : {
+         "IFPA_ID" : "45715",
+         "IFPA_RANK" : "9130",
+         "IPR" : 1,
+         "MP_LB" : 1213
+      },
+      "Corey Klier" : {
+         "IFPA_ID" : "56657",
+         "IFPA_RANK" : "19906",
+         "IPR" : 2,
+         "MP_LB" : 1259
+      },
+      "Cory Moormeier" : {
+         "IFPA_ID" : "15562",
+         "IFPA_RANK" : "2386",
+         "IPR" : 3,
+         "MP_LB" : 1391
+      },
+      "Craig Cainkar" : {
+         "IFPA_ID" : "58391",
+         "IFPA_RANK" : "6388",
+         "IPR" : 2,
+         "MP_LB" : 1336
+      },
+      "Craig R Jones" : {
+         "IFPA_ID" : "34433",
+         "IFPA_RANK" : "824",
+         "IPR" : 4,
+         "MP_LB" : 1489
+      },
+      "Croix Frigo" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1244
+      },
+      "Dan Atchison" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Dan Crowdus" : {
+         "IFPA_ID" : "41196",
+         "IFPA_RANK" : "7314",
+         "IPR" : 3,
+         "MP_LB" : 1386
+      },
+      "Dan Danger" : {
+         "IFPA_ID" : "15561",
+         "IFPA_RANK" : "797",
+         "IPR" : 4,
+         "MP_LB" : 1481
+      },
+      "Dan Mclane" : {
+         "IFPA_ID" : "41600",
+         "IFPA_RANK" : "2469",
+         "IPR" : 3,
+         "MP_LB" : 1272
+      },
+      "Danae Hackett" : {
+         "IFPA_ID" : "36832",
+         "IFPA_RANK" : "16311",
+         "IPR" : 3,
+         "MP_LB" : 1371
+      },
+      "Dane Hjeresen" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Daniel Marino" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Daniel Miller WA" : {
+         "IFPA_ID" : "30016",
+         "IFPA_RANK" : "1609",
+         "IPR" : 3,
+         "MP_LB" : 1250
+      },
+      "Daniel Reddin" : {
+         "IFPA_ID" : "39585",
+         "IFPA_RANK" : "4534",
+         "IPR" : 3,
+         "MP_LB" : 1353
+      },
+      "Daniel Salo" : {
+         "IFPA_ID" : "17535",
+         "IFPA_RANK" : "2016",
+         "IPR" : 4,
+         "MP_LB" : 1458
+      },
+      "Daniel Scott Clark" : {
+         "IFPA_ID" : "37391",
+         "IFPA_RANK" : "10782",
+         "IPR" : 2,
+         "MP_LB" : 1322
+      },
+      "Danielle Crowson" : {
+         "IFPA_ID" : "31959",
+         "IFPA_RANK" : "3044",
+         "IPR" : 3,
+         "MP_LB" : 1383
+      },
+      "Danielle Wilcox" : {
+         "IFPA_ID" : "51575",
+         "IFPA_RANK" : "12520",
+         "IPR" : 2,
+         "MP_LB" : 1309
+      },
+      "Danny Rashid" : {
+         "IFPA_ID" : "20712",
+         "IFPA_RANK" : "11839",
+         "IPR" : 5,
+         "MP_LB" : 1564
+      },
+      "Darin Lange" : {
+         "IFPA_ID" : "41585",
+         "IFPA_RANK" : "998",
+         "IPR" : 5,
+         "MP_LB" : 1519
+      },
+      "Darryl Tillman" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1197
+      },
+      "Dave Kane" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Dave Mealy" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1195
+      },
+      "Dave Stewart" : {
+         "IFPA_ID" : "54",
+         "IFPA_RANK" : "33",
+         "IPR" : 6,
+         "MP_LB" : 1683
+      },
+      "David Donner" : {
+         "IFPA_ID" : "40425",
+         "IFPA_RANK" : "12928",
+         "IPR" : 1,
+         "MP_LB" : 1157
+      },
+      "David Griffin" : {
+         "IFPA_ID" : "41500",
+         "IFPA_RANK" : "3946",
+         "IPR" : 2,
+         "MP_LB" : 1283
+      },
+      "David Latimer" : {
+         "IFPA_ID" : "12001",
+         "IFPA_RANK" : "2448",
+         "IPR" : 3,
+         "MP_LB" : 1371
+      },
+      "David Palen" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1267
+      },
+      "David Rauschenberg" : {
+         "IFPA_ID" : "23614",
+         "IFPA_RANK" : "1469",
+         "IPR" : 4,
+         "MP_LB" : 1447
+      },
+      "Deborah Torrison" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Dennis Ayres" : {
+         "IFPA_ID" : "24659",
+         "IFPA_RANK" : "1789",
+         "IPR" : 3,
+         "MP_LB" : 1304
+      },
+      "Derek Lee" : {
+         "IFPA_ID" : "39967",
+         "IFPA_RANK" : "31730",
+         "IPR" : 1,
+         "MP_LB" : 1245
+      },
+      "Dickie Hornaman" : {
+         "IFPA_ID" : "45375",
+         "IFPA_RANK" : "2588",
+         "IPR" : 4,
+         "MP_LB" : 1455
+      },
+      "Diego Medrano" : {
+         "IFPA_ID" : "54256",
+         "IFPA_RANK" : "12316",
+         "IPR" : 3,
+         "MP_LB" : 1370
+      },
+      "Dingo Freid" : {
+         "IFPA_ID" : "46367",
+         "IFPA_RANK" : "5070",
+         "IPR" : 2,
+         "MP_LB" : 1284
+      },
+      "Dj Youngblood" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 3,
+         "MP_LB" : 1372
+      },
+      "Dominique Shadduck" : {
+         "IFPA_ID" : "47780",
+         "IFPA_RANK" : "10212",
+         "IPR" : 2,
+         "MP_LB" : 1321
+      },
+      "Doug Turney" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1154
+      },
+      "Dwayne Collins" : {
+         "IFPA_ID" : "33062",
+         "IFPA_RANK" : "3955",
+         "IPR" : 3,
+         "MP_LB" : 1369
+      },
+      "Elijah Nelson" : {
+         "IFPA_ID" : "3276",
+         "IFPA_RANK" : "810",
+         "IPR" : 6,
+         "MP_LB" : 1624
+      },
+      "Elliott Johnson" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1326
+      },
+      "Emerson Gelb" : {
+         "IFPA_ID" : "57266",
+         "IFPA_RANK" : "14772",
+         "IPR" : 2,
+         "MP_LB" : 1279
+      },
+      "Emily Beirne" : {
+         "IFPA_ID" : "50126",
+         "IFPA_RANK" : "13579",
+         "IPR" : 2,
+         "MP_LB" : 1322
+      },
+      "Emily Gibian" : {
+         "IFPA_ID" : "54257",
+         "IFPA_RANK" : "7247",
+         "IPR" : 3,
+         "MP_LB" : 1405
+      },
+      "Emily Tower" : {
+         "IFPA_ID" : "49472",
+         "IFPA_RANK" : "14607",
+         "IPR" : 1,
+         "MP_LB" : 1254
+      },
+      "Emma Frost" : {
+         "IFPA_ID" : "44906",
+         "IFPA_RANK" : "4700",
+         "IPR" : 3,
+         "MP_LB" : 1381
+      },
+      "Emma Hellthaler" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1153
+      },
+      "Eric Csakany" : {
+         "IFPA_ID" : "32895",
+         "IFPA_RANK" : "968",
+         "IPR" : 5,
+         "MP_LB" : 1571
+      },
+      "Eric Dushoff" : {
+         "IFPA_ID" : "24748",
+         "IFPA_RANK" : "11631",
+         "IPR" : 1,
+         "MP_LB" : 1039
+      },
+      "Eric Garrison" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Eric Morales" : {
+         "IFPA_ID" : "23997",
+         "IFPA_RANK" : "840",
+         "IPR" : 6,
+         "MP_LB" : 1605
+      },
+      "Erik Gust" : {
+         "IFPA_ID" : "3287",
+         "IFPA_RANK" : "639",
+         "IPR" : 5,
+         "MP_LB" : 1580
+      },
+      "Erin Shadensack" : {
+         "IFPA_ID" : "40652",
+         "IFPA_RANK" : "4474",
+         "IPR" : 2,
+         "MP_LB" : 1344
+      },
+      "Ethan Johnson" : {
+         "IFPA_ID" : "41603",
+         "IFPA_RANK" : "29227",
+         "IPR" : 1,
+         "MP_LB" : 1254
+      },
+      "Evan Adkins" : {
+         "IFPA_ID" : "34073",
+         "IFPA_RANK" : "6320",
+         "IPR" : 3,
+         "MP_LB" : 1383
+      },
+      "Evan McBride" : {
+         "IFPA_ID" : "15560",
+         "IFPA_RANK" : "2908",
+         "IPR" : 3,
+         "MP_LB" : 1403
+      },
+      "Eyehole Man" : {
+         "IFPA_ID" : "20094",
+         "IFPA_RANK" : "1262",
+         "IPR" : 4,
+         "MP_LB" : 1451
+      },
+      "Fabian Benabente" : {
+         "IFPA_ID" : "52531",
+         "IFPA_RANK" : "1594",
+         "IPR" : 4,
+         "MP_LB" : 1475
+      },
+      "Fernando Pizarro" : {
+         "IFPA_ID" : "39581",
+         "IFPA_RANK" : "9796",
+         "IPR" : 2,
+         "MP_LB" : 1267
+      },
+      "Flash Haze" : {
+         "IFPA_ID" : "17537",
+         "IFPA_RANK" : "1427",
+         "IPR" : 4,
+         "MP_LB" : 1467
+      },
+      "Frank Haltom" : {
+         "IFPA_ID" : "19491",
+         "IFPA_RANK" : "0",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "Frank Sposaro" : {
+         "IFPA_ID" : "20058",
+         "IFPA_RANK" : "2025",
+         "IPR" : 3,
+         "MP_LB" : 1444
+      },
+      "Gabrielle Torrison" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Gavin Carrol" : {
+         "IFPA_ID" : "54608",
+         "IFPA_RANK" : "8012",
+         "IPR" : 3,
+         "MP_LB" : 1419
+      },
+      "Geoff Simons" : {
+         "IFPA_ID" : "16570",
+         "IFPA_RANK" : "765",
+         "IPR" : 5,
+         "MP_LB" : 1532
+      },
+      "George Kent" : {
+         "IFPA_ID" : "48187",
+         "IFPA_RANK" : "5701",
+         "IPR" : 2,
+         "MP_LB" : 1327
+      },
+      "George Lally" : {
+         "IFPA_ID" : "8897",
+         "IFPA_RANK" : "10835",
+         "IPR" : 3,
+         "MP_LB" : 1365
+      },
+      "Gilbert Sandejas" : {
+         "IFPA_ID" : "30152",
+         "IFPA_RANK" : "1856",
+         "IPR" : 3,
+         "MP_LB" : 1438
+      },
+      "Gordon Ornelas" : {
+         "IFPA_ID" : "3289",
+         "IFPA_RANK" : "1908",
+         "IPR" : 4,
+         "MP_LB" : 1476
+      },
+      "Greg Balducci" : {
+         "IFPA_ID" : "41037",
+         "IFPA_RANK" : "12325",
+         "IPR" : 2,
+         "MP_LB" : 1338
+      },
+      "Greg Gramenz" : {
+         "IFPA_ID" : "53806",
+         "IFPA_RANK" : "17295",
+         "IPR" : 2,
+         "MP_LB" : 1321
+      },
+      "Hannah Hatch" : {
+         "IFPA_ID" : "17104",
+         "IFPA_RANK" : "452",
+         "IPR" : 5,
+         "MP_LB" : 1479
+      },
+      "Harold Noble" : {
+         "IFPA_ID" : "48168",
+         "IFPA_RANK" : "4505",
+         "IPR" : 3,
+         "MP_LB" : 1402
+      },
+      "Hayden McCabe" : {
+         "IFPA_ID" : "17604",
+         "IFPA_RANK" : "2036",
+         "IPR" : 3,
+         "MP_LB" : 1439
+      },
+      "Heather Brammer" : {
+         "IFPA_ID" : "9597",
+         "IFPA_RANK" : "0",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "Heather Loudon" : {
+         "IFPA_ID" : "9142",
+         "IFPA_RANK" : "1189",
+         "IPR" : 4,
+         "MP_LB" : 1450
+      },
+      "Heather Thompson" : {
+         "IFPA_ID" : "44541",
+         "IFPA_RANK" : "3298",
+         "IPR" : 3,
+         "MP_LB" : 1388
+      },
+      "Heather Willott" : {
+         "IFPA_ID" : "12716",
+         "IFPA_RANK" : "2440",
+         "IPR" : 3,
+         "MP_LB" : 1365
+      },
+      "Honi Harrison" : {
+         "IFPA_ID" : "48095",
+         "IFPA_RANK" : "6169",
+         "IPR" : 2,
+         "MP_LB" : 1304
+      },
+      "Ian Spicknal" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1304
+      },
+      "Isaac Harney" : {
+         "IFPA_ID" : "34115",
+         "IFPA_RANK" : "6487",
+         "IPR" : 1,
+         "MP_LB" : 1249
+      },
+      "Isaac Kaplan-Woolner" : {
+         "IFPA_ID" : "42014",
+         "IFPA_RANK" : "9753",
+         "IPR" : 2,
+         "MP_LB" : 1302
+      },
+      "Jackson Mccomish" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1331
+      },
+      "Jackson Ryan" : {
+         "IFPA_ID" : "53964",
+         "IFPA_RANK" : "12272",
+         "IPR" : 3,
+         "MP_LB" : 1355
+      },
+      "Jacob Bevan" : {
+         "IFPA_ID" : "47775",
+         "IFPA_RANK" : "7918",
+         "IPR" : 2,
+         "MP_LB" : 1340
+      },
+      "Jake Hei" : {
+         "IFPA_ID" : "50081",
+         "IFPA_RANK" : "2344",
+         "IPR" : 4,
+         "MP_LB" : 1449
+      },
+      "James Brown" : {
+         "IFPA_ID" : "57265",
+         "IFPA_RANK" : "22216",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "James Daniels" : {
+         "IFPA_ID" : "21270",
+         "IFPA_RANK" : "2123",
+         "IPR" : 3,
+         "MP_LB" : 1336
+      },
+      "James Frost-Winn" : {
+         "IFPA_ID" : "35952",
+         "IFPA_RANK" : "682",
+         "IPR" : 5,
+         "MP_LB" : 1546
+      },
+      "James Orrell" : {
+         "IFPA_ID" : "59031",
+         "IFPA_RANK" : "25676",
+         "IPR" : 2,
+         "MP_LB" : 1340
+      },
+      "James Thompson" : {
+         "IFPA_ID" : "45585",
+         "IFPA_RANK" : "1563",
+         "IPR" : 4,
+         "MP_LB" : 1498
+      },
+      "Jamie Winsor" : {
+         "IFPA_ID" : "24907",
+         "IFPA_RANK" : "9356",
+         "IPR" : 4,
+         "MP_LB" : 1491
+      },
+      "Janet Owen" : {
+         "IFPA_ID" : "49478",
+         "IFPA_RANK" : "0",
+         "IPR" : 1,
+         "MP_LB" : 1127
+      },
+      "Jared Baldridge" : {
+         "IFPA_ID" : "39582",
+         "IFPA_RANK" : "479",
+         "IPR" : 5,
+         "MP_LB" : 1488
+      },
+      "Jared Gamble" : {
+         "IFPA_ID" : "24018",
+         "IFPA_RANK" : "1064",
+         "IPR" : 3,
+         "MP_LB" : 1418
+      },
+      "Jarrett Gaddy" : {
+         "IFPA_ID" : "6143",
+         "IFPA_RANK" : "332",
+         "IPR" : 6,
+         "MP_LB" : 1605
+      },
+      "Jarrod Job" : {
+         "IFPA_ID" : "49094",
+         "IFPA_RANK" : "9494",
+         "IPR" : 1,
+         "MP_LB" : 1099
+      },
+      "Jason Hatch" : {
+         "IFPA_ID" : "614",
+         "IFPA_RANK" : "605",
+         "IPR" : 5,
+         "MP_LB" : 1548
+      },
+      "Jason Heitt" : {
+         "IFPA_ID" : "33168",
+         "IFPA_RANK" : "1576",
+         "IPR" : 3,
+         "MP_LB" : 1424
+      },
+      "Jason Lombard" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1243
+      },
+      "Jason Trojan" : {
+         "IFPA_ID" : "9595",
+         "IFPA_RANK" : "2490",
+         "IPR" : 3,
+         "MP_LB" : 1282
+      },
+      "Jay Hain" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1223
+      },
+      "Jay Sowell" : {
+         "IFPA_ID" : "52600",
+         "IFPA_RANK" : "23609",
+         "IPR" : 1,
+         "MP_LB" : 1161
+      },
+      "Jay Sweeney" : {
+         "IFPA_ID" : "48097",
+         "IFPA_RANK" : "5600",
+         "IPR" : 3,
+         "MP_LB" : 1427
+      },
+      "Jay Waymire" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 3,
+         "MP_LB" : 1358
+      },
+      "Jeff Anderson WA" : {
+         "IFPA_ID" : "9226",
+         "IFPA_RANK" : "1422",
+         "IPR" : 3,
+         "MP_LB" : 1336
+      },
+      "Jeff Debock" : {
+         "IFPA_ID" : "14840",
+         "IFPA_RANK" : "1092",
+         "IPR" : 5,
+         "MP_LB" : 1554
+      },
+      "Jeff Dillaman" : {
+         "IFPA_ID" : "55787",
+         "IFPA_RANK" : "4985",
+         "IPR" : 2,
+         "MP_LB" : 1328
+      },
+      "Jeff Gagnon" : {
+         "IFPA_ID" : "711",
+         "IFPA_RANK" : "203",
+         "IPR" : 5,
+         "MP_LB" : 1532
+      },
+      "Jeff Rogers" : {
+         "IFPA_ID" : "13383",
+         "IFPA_RANK" : "3417",
+         "IPR" : 2,
+         "MP_LB" : 1284
+      },
+      "Jeff Sawyer" : {
+         "IFPA_ID" : "27226",
+         "IFPA_RANK" : "1944",
+         "IPR" : 3,
+         "MP_LB" : 1416
+      },
+      "Jeremiah Ratledge" : {
+         "IFPA_ID" : "52943",
+         "IFPA_RANK" : "23617",
+         "IPR" : 1,
+         "MP_LB" : 1242
+      },
+      "Jeremy Edwards" : {
+         "IFPA_ID" : "14503",
+         "IFPA_RANK" : "2596",
+         "IPR" : 3,
+         "MP_LB" : 1434
+      },
+      "Jeremy Jones" : {
+         "IFPA_ID" : "39598",
+         "IFPA_RANK" : "20967",
+         "IPR" : 1,
+         "MP_LB" : 1148
+      },
+      "Jesse Chappelle" : {
+         "IFPA_ID" : "19323",
+         "IFPA_RANK" : "0",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "Jesse Labbe" : {
+         "IFPA_ID" : "49364",
+         "IFPA_RANK" : "362",
+         "IPR" : 5,
+         "MP_LB" : 1538
+      },
+      "Jesse Mercury" : {
+         "IFPA_ID" : "41320",
+         "IFPA_RANK" : "5834",
+         "IPR" : 2,
+         "MP_LB" : 1346
+      },
+      "Jesse Mullene" : {
+         "IFPA_ID" : "38463",
+         "IFPA_RANK" : "1171",
+         "IPR" : 5,
+         "MP_LB" : 1509
+      },
+      "Jesse Rinehart" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1303
+      },
+      "Jessica Dengler" : {
+         "IFPA_ID" : "41764",
+         "IFPA_RANK" : "11350",
+         "IPR" : 3,
+         "MP_LB" : 1356
+      },
+      "Jodine Hatfield" : {
+         "IFPA_ID" : "9235",
+         "IFPA_RANK" : "1881",
+         "IPR" : 5,
+         "MP_LB" : 1528
+      },
+      "Joe Ricci" : {
+         "IFPA_ID" : "56594",
+         "IFPA_RANK" : "20667",
+         "IPR" : 3,
+         "MP_LB" : 1355
+      },
+      "John Garnett" : {
+         "IFPA_ID" : "32819",
+         "IFPA_RANK" : "2520",
+         "IPR" : 4,
+         "MP_LB" : 1448
+      },
+      "John Lim" : {
+         "IFPA_ID" : "1665",
+         "IFPA_RANK" : "2213",
+         "IPR" : 3,
+         "MP_LB" : 1354
+      },
+      "John McAllister" : {
+         "IFPA_ID" : "16788",
+         "IFPA_RANK" : "1441",
+         "IPR" : 5,
+         "MP_LB" : 1581
+      },
+      "John Robinson WA" : {
+         "IFPA_ID" : "21384",
+         "IFPA_RANK" : "247",
+         "IPR" : 5,
+         "MP_LB" : 1557
+      },
+      "Johnny Hill" : {
+         "IFPA_ID" : "58686",
+         "IFPA_RANK" : "0",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "Jon Salzman" : {
+         "IFPA_ID" : "26374",
+         "IFPA_RANK" : "933",
+         "IPR" : 5,
+         "MP_LB" : 1573
+      },
+      "Jon Shaiman" : {
+         "IFPA_ID" : "50869",
+         "IFPA_RANK" : "4045",
+         "IPR" : 3,
+         "MP_LB" : 1441
+      },
+      "Jonathan Hawthorne" : {
+         "IFPA_ID" : "24519",
+         "IFPA_RANK" : "1081",
+         "IPR" : 4,
+         "MP_LB" : 1447
+      },
+      "Jordan Semrow" : {
+         "IFPA_ID" : "28813",
+         "IFPA_RANK" : "254",
+         "IPR" : 5,
+         "MP_LB" : 1563
+      },
+      "Jorge Romero" : {
+         "IFPA_ID" : "2094",
+         "IFPA_RANK" : "3843",
+         "IPR" : 3,
+         "MP_LB" : 1377
+      },
+      "Josh Anderson" : {
+         "IFPA_ID" : "49156",
+         "IFPA_RANK" : "27619",
+         "IPR" : 1,
+         "MP_LB" : 1214
+      },
+      "Josh Dupraw" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1108
+      },
+      "Josh Hornbaker" : {
+         "IFPA_ID" : "35492",
+         "IFPA_RANK" : "1592",
+         "IPR" : 4,
+         "MP_LB" : 1474
+      },
+      "Josh Schaffner" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Josh Swaney" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Joshua Barnes" : {
+         "IFPA_ID" : "27230",
+         "IFPA_RANK" : "2633",
+         "IPR" : 4,
+         "MP_LB" : 1449
+      },
+      "Joshua Bartlett" : {
+         "IFPA_ID" : "25521",
+         "IFPA_RANK" : "222",
+         "IPR" : 6,
+         "MP_LB" : 1658
+      },
+      "Joshua DeGarmo" : {
+         "IFPA_ID" : "41036",
+         "IFPA_RANK" : "16213",
+         "IPR" : 1,
+         "MP_LB" : 1218
+      },
+      "Joshua Francis" : {
+         "IFPA_ID" : "30041",
+         "IFPA_RANK" : "2090",
+         "IPR" : 5,
+         "MP_LB" : 1558
+      },
+      "Joy Nash" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1157
+      },
+      "Julie Gray" : {
+         "IFPA_ID" : "1380",
+         "IFPA_RANK" : "340",
+         "IPR" : 5,
+         "MP_LB" : 1461
+      },
+      "Justin Blau" : {
+         "IFPA_ID" : "18884",
+         "IFPA_RANK" : "7220",
+         "IPR" : 3,
+         "MP_LB" : 1387
+      },
+      "Justin Hugeback" : {
+         "IFPA_ID" : "21896",
+         "IFPA_RANK" : "1414",
+         "IPR" : 4,
+         "MP_LB" : 1490
+      },
+      "Justina Russo" : {
+         "IFPA_ID" : "44242",
+         "IFPA_RANK" : "1688",
+         "IPR" : 4,
+         "MP_LB" : 1497
+      },
+      "Karla Rivers" : {
+         "IFPA_ID" : "42222",
+         "IFPA_RANK" : "9336",
+         "IPR" : 3,
+         "MP_LB" : 1388
+      },
+      "Katie Eichenberger" : {
+         "IFPA_ID" : "31811",
+         "IFPA_RANK" : "1656",
+         "IPR" : 4,
+         "MP_LB" : 1457
+      },
+      "Katie Janis" : {
+         "IFPA_ID" : "25563",
+         "IFPA_RANK" : "1644",
+         "IPR" : 3,
+         "MP_LB" : 1422
+      },
+      "Kay Kay" : {
+         "IFPA_ID" : "37557",
+         "IFPA_RANK" : "2458",
+         "IPR" : 3,
+         "MP_LB" : 1312
+      },
+      "Kayla Greet" : {
+         "IFPA_ID" : "16787",
+         "IFPA_RANK" : "997",
+         "IPR" : 4,
+         "MP_LB" : 1464
+      },
+      "Keenan Goodall" : {
+         "IFPA_ID" : "37362",
+         "IFPA_RANK" : "2926",
+         "IPR" : 4,
+         "MP_LB" : 1470
+      },
+      "Keith Wolfe" : {
+         "IFPA_ID" : "6411",
+         "IFPA_RANK" : "5554",
+         "IPR" : 2,
+         "MP_LB" : 1301
+      },
+      "Kellan Kirkland" : {
+         "IFPA_ID" : "41039",
+         "IFPA_RANK" : "2778",
+         "IPR" : 4,
+         "MP_LB" : 1461
+      },
+      "Kellan Smith" : {
+         "IFPA_ID" : "13738",
+         "IFPA_RANK" : "4929",
+         "IPR" : 3,
+         "MP_LB" : 1370
+      },
+      "Kelsey Myers" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Kelsie Sherman Hall" : {
+         "IFPA_ID" : "48487",
+         "IFPA_RANK" : "6667",
+         "IPR" : 2,
+         "MP_LB" : 1332
+      },
+      "Ken Dean" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1220
+      },
+      "Kevin Birrell" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 6,
+         "MP_LB" : 1613
+      },
+      "Kevin Lessig" : {
+         "IFPA_ID" : "609",
+         "IFPA_RANK" : "4635",
+         "IPR" : 4,
+         "MP_LB" : 1494
+      },
+      "Kirk Zehrung" : {
+         "IFPA_ID" : "58131",
+         "IFPA_RANK" : "9665",
+         "IPR" : 3,
+         "MP_LB" : 1428
+      },
+      "Kirsten Wohlrab" : {
+         "IFPA_ID" : "21132",
+         "IFPA_RANK" : "0",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "Kolby Krie" : {
+         "IFPA_ID" : "42216",
+         "IFPA_RANK" : "16105",
+         "IPR" : 1,
+         "MP_LB" : 1188
+      },
+      "Kordell Roberts" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Kylie Waibel" : {
+         "IFPA_ID" : "35662",
+         "IFPA_RANK" : "4059",
+         "IPR" : 2,
+         "MP_LB" : 1305
+      },
+      "Laura Bodine" : {
+         "IFPA_ID" : "42813",
+         "IFPA_RANK" : "13141",
+         "IPR" : 2,
+         "MP_LB" : 1278
+      },
+      "Laura Hale" : {
+         "IFPA_ID" : "20392",
+         "IFPA_RANK" : "5994",
+         "IPR" : 3,
+         "MP_LB" : 1417
+      },
+      "Lauren Aiello" : {
+         "IFPA_ID" : "47061",
+         "IFPA_RANK" : "5881",
+         "IPR" : 1,
+         "MP_LB" : 1255
+      },
+      "Lauren Aquino" : {
+         "IFPA_ID" : "27227",
+         "IFPA_RANK" : "1470",
+         "IPR" : 4,
+         "MP_LB" : 1503
+      },
+      "Lauren Shepherd" : {
+         "IFPA_ID" : "9403",
+         "IFPA_RANK" : "6436",
+         "IPR" : 2,
+         "MP_LB" : 1295
+      },
+      "Lawrence Campbell" : {
+         "IFPA_ID" : "52722",
+         "IFPA_RANK" : "7497",
+         "IPR" : 2,
+         "MP_LB" : 1334
+      },
+      "Lefty Sitaras" : {
+         "IFPA_ID" : "26328",
+         "IFPA_RANK" : "6926",
+         "IPR" : 3,
+         "MP_LB" : 1395
+      },
+      "Lenny Jackson" : {
+         "IFPA_ID" : "53107",
+         "IFPA_RANK" : "21825",
+         "IPR" : 1,
+         "MP_LB" : 1113
+      },
+      "Lester Mass" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1168
+      },
+      "Lilly Belle" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1245
+      },
+      "Lina Davidson" : {
+         "IFPA_ID" : "56705",
+         "IFPA_RANK" : "0",
+         "IPR" : 1,
+         "MP_LB" : 1244
+      },
+      "Lucas Arias" : {
+         "IFPA_ID" : "48190",
+         "IFPA_RANK" : "5256",
+         "IPR" : 3,
+         "MP_LB" : 1406
+      },
+      "Lucy Hoffman" : {
+         "IFPA_ID" : "48642",
+         "IFPA_RANK" : "11969",
+         "IPR" : 1,
+         "MP_LB" : 1243
+      },
+      "Luke Bullert" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1176
+      },
+      "Luke Camarda" : {
+         "IFPA_ID" : "19497",
+         "IFPA_RANK" : "2243",
+         "IPR" : 3,
+         "MP_LB" : 1413
+      },
+      "Lyn Cason" : {
+         "IFPA_ID" : "47538",
+         "IFPA_RANK" : "12239",
+         "IPR" : 1,
+         "MP_LB" : 1233
+      },
+      "Mackenzie Meinhordt" : {
+         "IFPA_ID" : "53106",
+         "IFPA_RANK" : "18502",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "Maia Williams" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1219
+      },
+      "Maka Honig" : {
+         "IFPA_ID" : "3238",
+         "IFPA_RANK" : "84",
+         "IPR" : 6,
+         "MP_LB" : 1604
+      },
+      "Mandie Moore" : {
+         "IFPA_ID" : "38315",
+         "IFPA_RANK" : "8271",
+         "IPR" : 2,
+         "MP_LB" : 1323
+      },
+      "Marilyn Braighboy" : {
+         "IFPA_ID" : "24744",
+         "IFPA_RANK" : "20566",
+         "IPR" : 1,
+         "MP_LB" : 1194
+      },
+      "Mark Daddy" : {
+         "IFPA_ID" : "45886",
+         "IFPA_RANK" : "4351",
+         "IPR" : 3,
+         "MP_LB" : 1374
+      },
+      "Mark Demmel" : {
+         "IFPA_ID" : "49098",
+         "IFPA_RANK" : "12450",
+         "IPR" : 3,
+         "MP_LB" : 1439
+      },
+      "Mark McClure" : {
+         "IFPA_ID" : "27323",
+         "IFPA_RANK" : "7953",
+         "IPR" : 3,
+         "MP_LB" : 1366
+      },
+      "Mark Rueter" : {
+         "IFPA_ID" : "45913",
+         "IFPA_RANK" : "32767",
+         "IPR" : 1,
+         "MP_LB" : 1085
+      },
+      "Mark Williams WA" : {
+         "IFPA_ID" : "17702",
+         "IFPA_RANK" : "2475",
+         "IPR" : 3,
+         "MP_LB" : 1431
+      },
+      "Mark Wistrom" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 4,
+         "MP_LB" : 1474
+      },
+      "Mary Quinn" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1128
+      },
+      "Matt Anderson" : {
+         "IFPA_ID" : "23996",
+         "IFPA_RANK" : "697",
+         "IPR" : 5,
+         "MP_LB" : 1557
+      },
+      "Matt Bollinger" : {
+         "IFPA_ID" : "20059",
+         "IFPA_RANK" : "3240",
+         "IPR" : 5,
+         "MP_LB" : 1567
+      },
+      "Matt Cohn" : {
+         "IFPA_ID" : "6823",
+         "IFPA_RANK" : "2299",
+         "IPR" : 4,
+         "MP_LB" : 1481
+      },
+      "Matt Galbraith" : {
+         "IFPA_ID" : "8893",
+         "IFPA_RANK" : "2017",
+         "IPR" : 5,
+         "MP_LB" : 1549
+      },
+      "Matt Golden" : {
+         "IFPA_ID" : "23040",
+         "IFPA_RANK" : "1512",
+         "IPR" : 3,
+         "MP_LB" : 1387
+      },
+      "Matt Lauro" : {
+         "IFPA_ID" : "19324",
+         "IFPA_RANK" : "976",
+         "IPR" : 4,
+         "MP_LB" : 1437
+      },
+      "Matt Salmon" : {
+         "IFPA_ID" : "40843",
+         "IFPA_RANK" : "12439",
+         "IPR" : 2,
+         "MP_LB" : 1288
+      },
+      "Matt Sarnoff" : {
+         "IFPA_ID" : "14890",
+         "IFPA_RANK" : "512",
+         "IPR" : 4,
+         "MP_LB" : 1462
+      },
+      "Matt Slater" : {
+         "IFPA_ID" : "40883",
+         "IFPA_RANK" : "1595",
+         "IPR" : 3,
+         "MP_LB" : 1379
+      },
+      "Matt Watts" : {
+         "IFPA_ID" : "23896",
+         "IFPA_RANK" : "825",
+         "IPR" : 4,
+         "MP_LB" : 1473
+      },
+      "Matt Wolfe" : {
+         "IFPA_ID" : "16574",
+         "IFPA_RANK" : "1839",
+         "IPR" : 4,
+         "MP_LB" : 1468
+      },
+      "Matthew Ellis" : {
+         "IFPA_ID" : "9363",
+         "IFPA_RANK" : "0",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "Matthew Levi Tate" : {
+         "IFPA_ID" : "40885",
+         "IFPA_RANK" : "11866",
+         "IPR" : 2,
+         "MP_LB" : 1294
+      },
+      "Matthew Puvogel" : {
+         "IFPA_ID" : "18283",
+         "IFPA_RANK" : "21092",
+         "IPR" : 1,
+         "MP_LB" : 1111
+      },
+      "Maureen Hendrix" : {
+         "IFPA_ID" : "48099",
+         "IFPA_RANK" : "1809",
+         "IPR" : 4,
+         "MP_LB" : 1492
+      },
+      "Max Davidoff" : {
+         "IFPA_ID" : "48096",
+         "IFPA_RANK" : "2768",
+         "IPR" : 3,
+         "MP_LB" : 1422
+      },
+      "Max Levine" : {
+         "IFPA_ID" : "53615",
+         "IFPA_RANK" : "23258",
+         "IPR" : 2,
+         "MP_LB" : 1260
+      },
+      "Max Stiles" : {
+         "IFPA_ID" : "18829",
+         "IFPA_RANK" : "2447",
+         "IPR" : 5,
+         "MP_LB" : 1534
+      },
+      "Megan Czahar" : {
+         "IFPA_ID" : "56969",
+         "IFPA_RANK" : "19267",
+         "IPR" : 3,
+         "MP_LB" : 1388
+      },
+      "Meghan West" : {
+         "IFPA_ID" : "31623",
+         "IFPA_RANK" : "1845",
+         "IPR" : 3,
+         "MP_LB" : 1365
+      },
+      "Michael Adcock" : {
+         "IFPA_ID" : "30396",
+         "IFPA_RANK" : "857",
+         "IPR" : 5,
+         "MP_LB" : 1522
+      },
+      "Michael Darigol" : {
+         "IFPA_ID" : "33167",
+         "IFPA_RANK" : "5356",
+         "IPR" : 3,
+         "MP_LB" : 1410
+      },
+      "Michael Rausch" : {
+         "IFPA_ID" : "49740",
+         "IFPA_RANK" : "9261",
+         "IPR" : 1,
+         "MP_LB" : 1204
+      },
+      "Michael Warfield" : {
+         "IFPA_ID" : "12360",
+         "IFPA_RANK" : "734",
+         "IPR" : 5,
+         "MP_LB" : 1518
+      },
+      "Michael Zuino" : {
+         "IFPA_ID" : "56113",
+         "IFPA_RANK" : "5402",
+         "IPR" : 3,
+         "MP_LB" : 1374
+      },
+      "Michelle Duskey" : {
+         "IFPA_ID" : "50037",
+         "IFPA_RANK" : "12241",
+         "IPR" : 1,
+         "MP_LB" : 1245
+      },
+      "Michelle Jones" : {
+         "IFPA_ID" : "41611",
+         "IFPA_RANK" : "13643",
+         "IPR" : 2,
+         "MP_LB" : 1318
+      },
+      "Michelle Pfeiffer" : {
+         "IFPA_ID" : "16802",
+         "IFPA_RANK" : "6173",
+         "IPR" : 1,
+         "MP_LB" : 1091
+      },
+      "Miguel Ferry" : {
+         "IFPA_ID" : "41046",
+         "IFPA_RANK" : "12588",
+         "IPR" : 2,
+         "MP_LB" : 1280
+      },
+      "Mika Rollin" : {
+         "IFPA_ID" : "24011",
+         "IFPA_RANK" : "1056",
+         "IPR" : 4,
+         "MP_LB" : 1488
+      },
+      "Mike Cook" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1196
+      },
+      "Mike Corbett WA" : {
+         "IFPA_ID" : "21560",
+         "IFPA_RANK" : "150",
+         "IPR" : 6,
+         "MP_LB" : 1626
+      },
+      "Mike Morton" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1257
+      },
+      "Mike Norman" : {
+         "IFPA_ID" : "7794",
+         "IFPA_RANK" : "0",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "Mike Pantoliano" : {
+         "IFPA_ID" : "22995",
+         "IFPA_RANK" : "312",
+         "IPR" : 5,
+         "MP_LB" : 1539
+      },
+      "Mike Poetzel" : {
+         "IFPA_ID" : "1687",
+         "IFPA_RANK" : "0",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "Mitch Anderson" : {
+         "IFPA_ID" : "40841",
+         "IFPA_RANK" : "2835",
+         "IPR" : 4,
+         "MP_LB" : 1480
+      },
+      "Molly Foster" : {
+         "IFPA_ID" : "49477",
+         "IFPA_RANK" : "7303",
+         "IPR" : 2,
+         "MP_LB" : 1338
+      },
+      "Nate Cantor" : {
+         "IFPA_ID" : "34117",
+         "IFPA_RANK" : "13898",
+         "IPR" : 2,
+         "MP_LB" : 1330
+      },
+      "Nate Dominguez" : {
+         "IFPA_ID" : "51832",
+         "IFPA_RANK" : "8777",
+         "IPR" : 1,
+         "MP_LB" : 1229
+      },
+      "Nathan Krause" : {
+         "IFPA_ID" : "44839",
+         "IFPA_RANK" : "26029",
+         "IPR" : 1,
+         "MP_LB" : 1114
+      },
+      "Nathan Stellhorn" : {
+         "IFPA_ID" : "10190",
+         "IFPA_RANK" : "400",
+         "IPR" : 5,
+         "MP_LB" : 1480
+      },
+      "Nathan Tompkins" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1293
+      },
+      "Neil Kubath" : {
+         "IFPA_ID" : "42483",
+         "IFPA_RANK" : "1179",
+         "IPR" : 4,
+         "MP_LB" : 1495
+      },
+      "Neil Oney" : {
+         "IFPA_ID" : "49363",
+         "IFPA_RANK" : "2837",
+         "IPR" : 3,
+         "MP_LB" : 1413
+      },
+      "Nic Crowson" : {
+         "IFPA_ID" : "31961",
+         "IFPA_RANK" : "414",
+         "IPR" : 5,
+         "MP_LB" : 1582
+      },
+      "Nick Bates-Benitez" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1247
+      },
+      "Nick Gibson" : {
+         "IFPA_ID" : "39078",
+         "IFPA_RANK" : "4103",
+         "IPR" : 2,
+         "MP_LB" : 1348
+      },
+      "Nick Pernisco" : {
+         "IFPA_ID" : "41581",
+         "IFPA_RANK" : "2298",
+         "IPR" : 3,
+         "MP_LB" : 1316
+      },
+      "Nick Taseris" : {
+         "IFPA_ID" : "13577",
+         "IFPA_RANK" : "1400",
+         "IPR" : 5,
+         "MP_LB" : 1516
+      },
+      "Nif Ward" : {
+         "IFPA_ID" : "53621",
+         "IFPA_RANK" : "9158",
+         "IPR" : 2,
+         "MP_LB" : 1308
+      },
+      "Nigel Colbert" : {
+         "IFPA_ID" : "1698",
+         "IFPA_RANK" : "500",
+         "IPR" : 4,
+         "MP_LB" : 1483
+      },
+      "Nikki Davis" : {
+         "IFPA_ID" : "57867",
+         "IFPA_RANK" : "0",
+         "IPR" : 2,
+         "MP_LB" : 1285
+      },
+      "Nikolai Shere" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 3,
+         "MP_LB" : 1380
+      },
+      "Nina Ricciardi" : {
+         "IFPA_ID" : "21367",
+         "IFPA_RANK" : "2244",
+         "IPR" : 3,
+         "MP_LB" : 1386
+      },
+      "Nycole Hyatt" : {
+         "IFPA_ID" : "3271",
+         "IFPA_RANK" : "1085",
+         "IPR" : 4,
+         "MP_LB" : 1508
+      },
+      "Oliver Kohut" : {
+         "IFPA_ID" : "56658",
+         "IFPA_RANK" : "7853",
+         "IPR" : 3,
+         "MP_LB" : 1436
+      },
+      "Pat May" : {
+         "IFPA_ID" : "48646",
+         "IFPA_RANK" : "18979",
+         "IPR" : 2,
+         "MP_LB" : 1311
+      },
+      "Patrick Law" : {
+         "IFPA_ID" : "37357",
+         "IFPA_RANK" : "3494",
+         "IPR" : 2,
+         "MP_LB" : 1308
+      },
+      "Paul White" : {
+         "IFPA_ID" : "17394",
+         "IFPA_RANK" : "9855",
+         "IPR" : 3,
+         "MP_LB" : 1385
+      },
+      "Paul Williams WA" : {
+         "IFPA_ID" : "17701",
+         "IFPA_RANK" : "4569",
+         "IPR" : 2,
+         "MP_LB" : 1250
+      },
+      "Pete Mitchell" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Peter Gapinski" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1259
+      },
+      "Peter Olive" : {
+         "IFPA_ID" : "34399",
+         "IFPA_RANK" : "2997",
+         "IPR" : 2,
+         "MP_LB" : 1293
+      },
+      "Peter Schatzer" : {
+         "IFPA_ID" : "25955",
+         "IFPA_RANK" : "1156",
+         "IPR" : 3,
+         "MP_LB" : 1439
+      },
+      "Phil Harmonic" : {
+         "IFPA_ID" : "24007",
+         "IFPA_RANK" : "4423",
+         "IPR" : 3,
+         "MP_LB" : 1411
+      },
+      "Phil Piwonka" : {
+         "IFPA_ID" : "10819",
+         "IFPA_RANK" : "20036",
+         "IPR" : 3,
+         "MP_LB" : 1398
+      },
+      "Philip Joupperi" : {
+         "IFPA_ID" : "49952",
+         "IFPA_RANK" : "1519",
+         "IPR" : 4,
+         "MP_LB" : 1484
+      },
+      "Philip Pinette" : {
+         "IFPA_ID" : "16302",
+         "IFPA_RANK" : "7729",
+         "IPR" : 2,
+         "MP_LB" : 1314
+      },
+      "Phillip Dodt" : {
+         "IFPA_ID" : "57702",
+         "IFPA_RANK" : "11755",
+         "IPR" : 3,
+         "MP_LB" : 1393
+      },
+      "Rachel Helm" : {
+         "IFPA_ID" : "22822",
+         "IFPA_RANK" : "3060",
+         "IPR" : 3,
+         "MP_LB" : 1384
+      },
+      "Rachel Stack" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1296
+      },
+      "Ramsey Sierra" : {
+         "IFPA_ID" : "19493",
+         "IFPA_RANK" : "2136",
+         "IPR" : 3,
+         "MP_LB" : 1410
+      },
+      "Randall Olson" : {
+         "IFPA_ID" : "35157",
+         "IFPA_RANK" : "4125",
+         "IPR" : 2,
+         "MP_LB" : 1313
+      },
+      "Randy Huynh" : {
+         "IFPA_ID" : "42480",
+         "IFPA_RANK" : "4658",
+         "IPR" : 2,
+         "MP_LB" : 1336
+      },
+      "Raymond Davidson" : {
+         "IFPA_ID" : "2576",
+         "IFPA_RANK" : "2",
+         "IPR" : 6,
+         "MP_LB" : 1691
+      },
+      "Ren Logan" : {
+         "IFPA_ID" : "54117",
+         "IFPA_RANK" : "7972",
+         "IPR" : 2,
+         "MP_LB" : 1333
+      },
+      "Rhett Pearson" : {
+         "IFPA_ID" : "30042",
+         "IFPA_RANK" : "4869",
+         "IPR" : 3,
+         "MP_LB" : 1403
+      },
+      "Richard Pugh" : {
+         "IFPA_ID" : "48188",
+         "IFPA_RANK" : "9230",
+         "IPR" : 2,
+         "MP_LB" : 1334
+      },
+      "Richard Scott" : {
+         "IFPA_ID" : "33171",
+         "IFPA_RANK" : "6403",
+         "IPR" : 2,
+         "MP_LB" : 1346
+      },
+      "Richie Terry" : {
+         "IFPA_ID" : "41582",
+         "IFPA_RANK" : "336",
+         "IPR" : 5,
+         "MP_LB" : 1555
+      },
+      "Rick Simpson" : {
+         "IFPA_ID" : "44243",
+         "IFPA_RANK" : "16476",
+         "IPR" : 3,
+         "MP_LB" : 1387
+      },
+      "Rita Perez" : {
+         "IFPA_ID" : "50073",
+         "IFPA_RANK" : "7471",
+         "IPR" : 1,
+         "MP_LB" : 1202
+      },
+      "Rob Atlas" : {
+         "IFPA_ID" : "21369",
+         "IFPA_RANK" : "0",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "Robbie Finnigan" : {
+         "IFPA_ID" : "36802",
+         "IFPA_RANK" : "852",
+         "IPR" : 4,
+         "MP_LB" : 1479
+      },
+      "Robert Evans" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Robert Rowland" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Robin Moore" : {
+         "IFPA_ID" : "26409",
+         "IFPA_RANK" : "1475",
+         "IPR" : 4,
+         "MP_LB" : 1469
+      },
+      "Rodney Olsen" : {
+         "IFPA_ID" : "2599",
+         "IFPA_RANK" : "2373",
+         "IPR" : 3,
+         "MP_LB" : 1365
+      },
+      "Ryan Buma" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Ryan Henak" : {
+         "IFPA_ID" : "53620",
+         "IFPA_RANK" : "6460",
+         "IPR" : 3,
+         "MP_LB" : 1409
+      },
+      "Ryan Newstrum" : {
+         "IFPA_ID" : "33031",
+         "IFPA_RANK" : "1344",
+         "IPR" : 4,
+         "MP_LB" : 1476
+      },
+      "Ryan Penrod" : {
+         "IFPA_ID" : "51823",
+         "IFPA_RANK" : "6407",
+         "IPR" : 4,
+         "MP_LB" : 1454
+      },
+      "Ryan Tupper" : {
+         "IFPA_ID" : "52563",
+         "IFPA_RANK" : "4723",
+         "IPR" : 3,
+         "MP_LB" : 1355
+      },
+      "Sagel Frazier" : {
+         "IFPA_ID" : "6837",
+         "IFPA_RANK" : "302",
+         "IPR" : 6,
+         "MP_LB" : 1605
+      },
+      "Sam Atlas" : {
+         "IFPA_ID" : "20534",
+         "IFPA_RANK" : "1078",
+         "IPR" : 4,
+         "MP_LB" : 1478
+      },
+      "Sam Bury" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Sam Snyder" : {
+         "IFPA_ID" : "29143",
+         "IFPA_RANK" : "2144",
+         "IPR" : 3,
+         "MP_LB" : 1410
+      },
+      "Sam Stiles" : {
+         "IFPA_ID" : "21061",
+         "IFPA_RANK" : "1990",
+         "IPR" : 5,
+         "MP_LB" : 1521
+      },
+      "Sandy Magallanes" : {
+         "IFPA_ID" : "40794",
+         "IFPA_RANK" : "4281",
+         "IPR" : 3,
+         "MP_LB" : 1375
+      },
+      "Sarah Decory" : {
+         "IFPA_ID" : "51933",
+         "IFPA_RANK" : "27291",
+         "IPR" : 1,
+         "MP_LB" : 1142
+      },
+      "Sarah Hager" : {
+         "IFPA_ID" : "52617",
+         "IFPA_RANK" : "2281",
+         "IPR" : 3,
+         "MP_LB" : 1395
+      },
+      "Sarah Ledray" : {
+         "IFPA_ID" : "44231",
+         "IFPA_RANK" : "9691",
+         "IPR" : 1,
+         "MP_LB" : 1192
+      },
+      "Sean Carlson" : {
+         "IFPA_ID" : "22839",
+         "IFPA_RANK" : "3096",
+         "IPR" : 2,
+         "MP_LB" : 1307
+      },
+      "Sean Detore" : {
+         "IFPA_ID" : "4786",
+         "IFPA_RANK" : "5827",
+         "IPR" : 3,
+         "MP_LB" : 1393
+      },
+      "Sean Gallagher" : {
+         "IFPA_ID" : "52792",
+         "IFPA_RANK" : "14063",
+         "IPR" : 1,
+         "MP_LB" : 1239
+      },
+      "Sean Irby" : {
+         "IFPA_ID" : "49529",
+         "IFPA_RANK" : "2122",
+         "IPR" : 4,
+         "MP_LB" : 1469
+      },
+      "Sean Mcdonald" : {
+         "IFPA_ID" : "34371",
+         "IFPA_RANK" : "1518",
+         "IPR" : 5,
+         "MP_LB" : 1578
+      },
+      "Sean Shypula" : {
+         "IFPA_ID" : "44544",
+         "IFPA_RANK" : "2021",
+         "IPR" : 3,
+         "MP_LB" : 1359
+      },
+      "Sergey Posrednikov" : {
+         "IFPA_ID" : "9141",
+         "IFPA_RANK" : "209",
+         "IPR" : 5,
+         "MP_LB" : 1599
+      },
+      "Shawn Chamberlain" : {
+         "IFPA_ID" : "24015",
+         "IFPA_RANK" : "7041",
+         "IPR" : 1,
+         "MP_LB" : 1235
+      },
+      "Sherae Lascelles" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Sherry Smith" : {
+         "IFPA_ID" : "1710",
+         "IFPA_RANK" : "4854",
+         "IPR" : 2,
+         "MP_LB" : 1291
+      },
+      "Sid Miner" : {
+         "IFPA_ID" : "47266",
+         "IFPA_RANK" : "21188",
+         "IPR" : 2,
+         "MP_LB" : 1301
+      },
+      "Skye Fleming" : {
+         "IFPA_ID" : "56775",
+         "IFPA_RANK" : "16526",
+         "IPR" : 1,
+         "MP_LB" : 1228
+      },
+      "Sophie Spickard" : {
+         "IFPA_ID" : "25650",
+         "IFPA_RANK" : "1318",
+         "IPR" : 4,
+         "MP_LB" : 1498
+      },
+      "Stacy Wilson" : {
+         "IFPA_ID" : "42233",
+         "IFPA_RANK" : "8289",
+         "IPR" : 3,
+         "MP_LB" : 1362
+      },
+      "Stanlo Slasinski" : {
+         "IFPA_ID" : "40838",
+         "IFPA_RANK" : "6966",
+         "IPR" : 3,
+         "MP_LB" : 1428
+      },
+      "Steph Hanlon" : {
+         "IFPA_ID" : "40884",
+         "IFPA_RANK" : "3330",
+         "IPR" : 3,
+         "MP_LB" : 1354
+      },
+      "Stephanie Sposaro" : {
+         "IFPA_ID" : "39457",
+         "IFPA_RANK" : "21072",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "Stephen Brundle" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1257
+      },
+      "Stephen Rakonza" : {
+         "IFPA_ID" : "43772",
+         "IFPA_RANK" : "2734",
+         "IPR" : 2,
+         "MP_LB" : 1311
+      },
+      "Stephen Rarick" : {
+         "IFPA_ID" : "48191",
+         "IFPA_RANK" : "9903",
+         "IPR" : 1,
+         "MP_LB" : 1193
+      },
+      "Steven Ackley" : {
+         "IFPA_ID" : "2585",
+         "IFPA_RANK" : "959",
+         "IPR" : 4,
+         "MP_LB" : 1456
+      },
+      "Steven Brewer" : {
+         "IFPA_ID" : "44631",
+         "IFPA_RANK" : "1042",
+         "IPR" : 5,
+         "MP_LB" : 1588
+      },
+      "Steven Mendez" : {
+         "IFPA_ID" : "54914",
+         "IFPA_RANK" : "10824",
+         "IPR" : 1,
+         "MP_LB" : 1205
+      },
+      "Stuart Young" : {
+         "IFPA_ID" : "38325",
+         "IFPA_RANK" : "3530",
+         "IPR" : 3,
+         "MP_LB" : 1391
+      },
+      "Taylor Minter" : {
+         "IFPA_ID" : "31725",
+         "IFPA_RANK" : "3796",
+         "IPR" : 4,
+         "MP_LB" : 1508
+      },
+      "Tenee Brockington" : {
+         "IFPA_ID" : "33061",
+         "IFPA_RANK" : "11946",
+         "IPR" : 1,
+         "MP_LB" : 1204
+      },
+      "Terrence Vaccaro" : {
+         "IFPA_ID" : "24208",
+         "IFPA_RANK" : "1741",
+         "IPR" : 3,
+         "MP_LB" : 1424
+      },
+      "Thom Geibel" : {
+         "IFPA_ID" : "46897",
+         "IFPA_RANK" : "27970",
+         "IPR" : 1,
+         "MP_LB" : 1161
+      },
+      "Tim Collins" : {
+         "IFPA_ID" : "49080",
+         "IFPA_RANK" : "3770",
+         "IPR" : 3,
+         "MP_LB" : 1390
+      },
+      "Tim McCool" : {
+         "IFPA_ID" : "39188",
+         "IFPA_RANK" : "704",
+         "IPR" : 5,
+         "MP_LB" : 1547
+      },
+      "Tim Sassafrass" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 3,
+         "MP_LB" : 1355
+      },
+      "Tim Tournay" : {
+         "IFPA_ID" : "4139",
+         "IFPA_RANK" : "165",
+         "IPR" : 5,
+         "MP_LB" : 1585
+      },
+      "Tim Uomoto" : {
+         "IFPA_ID" : "36803",
+         "IFPA_RANK" : "5773",
+         "IPR" : 4,
+         "MP_LB" : 1454
+      },
+      "Timm Shere" : {
+         "IFPA_ID" : "43627",
+         "IFPA_RANK" : "1623",
+         "IPR" : 3,
+         "MP_LB" : 1438
+      },
+      "Timothy Kitchen" : {
+         "IFPA_ID" : "58059",
+         "IFPA_RANK" : "4990",
+         "IPR" : 3,
+         "MP_LB" : 1403
+      },
+      "Tj Denne" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1220
+      },
+      "Todd Larsen" : {
+         "IFPA_ID" : "39139",
+         "IFPA_RANK" : "492",
+         "IPR" : 5,
+         "MP_LB" : 1573
+      },
+      "Todd Rafacz" : {
+         "IFPA_ID" : "19478",
+         "IFPA_RANK" : "89",
+         "IPR" : 6,
+         "MP_LB" : 1638
+      },
+      "Tomar Schell" : {
+         "IFPA_ID" : "54850",
+         "IFPA_RANK" : "0",
+         "IPR" : 1,
+         "MP_LB" : 1198
+      },
+      "Tony Bacus" : {
+         "IFPA_ID" : "14390",
+         "IFPA_RANK" : "4526",
+         "IPR" : 3,
+         "MP_LB" : 1401
+      },
+      "Tony Mitchum" : {
+         "IFPA_ID" : "21365",
+         "IFPA_RANK" : "0",
+         "IPR" : 1,
+         "MP_LB" : 1250
+      },
+      "Travis Maisch" : {
+         "IFPA_ID" : "24525",
+         "IFPA_RANK" : "387",
+         "IPR" : 5,
+         "MP_LB" : 1545
+      },
+      "Tressa Points" : {
+         "IFPA_ID" : "42481",
+         "IFPA_RANK" : "3147",
+         "IPR" : 2,
+         "MP_LB" : 1257
+      },
+      "Trina Wheatley" : {
+         "IFPA_ID" : "57385",
+         "IFPA_RANK" : "12667",
+         "IPR" : 3,
+         "MP_LB" : 1358
+      },
+      "Tristan Mott" : {
+         "IFPA_ID" : "51863",
+         "IFPA_RANK" : "20105",
+         "IPR" : 2,
+         "MP_LB" : 1272
+      },
+      "Tristan Ward" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 2,
+         "MP_LB" : 1338
+      },
+      "Tyler Bentley Adams" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "Tyler Dellinger" : {
+         "IFPA_ID" : "51278",
+         "IFPA_RANK" : "16947",
+         "IPR" : 2,
+         "MP_LB" : 1286
+      },
+      "Tyler Esselstrom" : {
+         "IFPA_ID" : "51833",
+         "IFPA_RANK" : "17624",
+         "IPR" : 1,
+         "MP_LB" : 1205
+      },
+      "Tyler Lingwall" : {
+         "IFPA_ID" : "26410",
+         "IFPA_RANK" : "13425",
+         "IPR" : 1,
+         "MP_LB" : 1113
+      },
+      "Tyler Moore" : {
+         "IFPA_ID" : "34418",
+         "IFPA_RANK" : "7686",
+         "IPR" : 3,
+         "MP_LB" : 1420
+      },
+      "Tyler Morgan" : {
+         "IFPA_ID" : "49667",
+         "IFPA_RANK" : "4196",
+         "IPR" : 3,
+         "MP_LB" : 1366
+      },
+      "Umboon Moore" : {
+         "IFPA_ID" : "43204",
+         "IFPA_RANK" : "3079",
+         "IPR" : 3,
+         "MP_LB" : 1443
+      },
+      "Vanessa Ish" : {
+         "IFPA_ID" : "52614",
+         "IFPA_RANK" : "0",
+         "IPR" : 2,
+         "MP_LB" : 1279
+      },
+      "Vic Pitre" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1137
+      },
+      "Vincent Sperrazza" : {
+         "IFPA_ID" : "47285",
+         "IFPA_RANK" : "1100",
+         "IPR" : 5,
+         "MP_LB" : 1592
+      },
+      "Whitney Davis" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 1256
+      },
+      "Whitney Zissou" : {
+         "IFPA_ID" : "33174",
+         "IFPA_RANK" : "5909",
+         "IPR" : 3,
+         "MP_LB" : 1417
+      },
+      "Will Kirkland" : {
+         "IFPA_ID" : "41038",
+         "IFPA_RANK" : "4267",
+         "IPR" : 2,
+         "MP_LB" : 1337
+      },
+      "Will Shull" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      },
+      "William Gordon" : {
+         "IFPA_ID" : "37360",
+         "IFPA_RANK" : "1500",
+         "IPR" : 3,
+         "MP_LB" : 1387
+      },
+      "William Scott Jordan" : {
+         "IFPA_ID" : "34108",
+         "IFPA_RANK" : "1334",
+         "IPR" : 3,
+         "MP_LB" : 1366
+      },
+      "Zac Petersen" : {
+         "IFPA_ID" : "17127",
+         "IFPA_RANK" : "1147",
+         "IPR" : 4,
+         "MP_LB" : 1485
+      },
+      "Zach Amador" : {
+         "IFPA_ID" : "35080",
+         "IFPA_RANK" : "1393",
+         "IPR" : 3,
+         "MP_LB" : 1317
+      },
+      "Zak Geier" : {
+         "IFPA_ID" : 0,
+         "IFPA_RANK" : 32767,
+         "IPR" : 1,
+         "MP_LB" : 0
+      }
+   },
+   "rosterpercentages" : {
+      "IPR1" : 14.3478260869565,
+      "IPR2" : 20.4347826086957,
+      "IPR3" : 30,
+      "IPR4" : 20,
+      "IPR5" : 12.6086956521739,
+      "IPR6" : 2.60869565217391,
+      "playercount" : "230"
+   },
+   "thresholds" : {
+      "IFPA21" : 5000,
+      "IFPA3" : 2500,
+      "IFPA4" : 1000,
+      "IFPA5" : 500,
+      "IFPA6" : 150,
+      "MP21" : 1256,
+      "MP3" : 1352,
+      "MP4" : 1444,
+      "MP5" : 1508,
+      "MP6" : 1604
+   }
+}
