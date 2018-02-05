@@ -12,6 +12,7 @@ use URI;
 use Web::Scraper;
 use CGI ':standard';
 use Data::Dumper;
+use Time::HiRes qw(time);
 use DateTime;
 use DateTime::Duration;
 use JSON::XS;
@@ -22,6 +23,7 @@ use URL::Encode qw(url_encode);
 use strict;
 use warnings;
 
+my $start_run = DateTime->from_epoch( epoch => time );
 my $ratingsdate;
 my $dtCurrent = DateTime->now;
 my $currentdate = $dtCurrent->ymd;
@@ -46,9 +48,10 @@ if (!$q) {
 
 print $query->header; # create the HTTP header
 print $query->start_html(-title=>'MNP Search Results',
-							-script=>[{-type=>'javascript', -src=>'jquery-3.3.1.min.js'},{-type=>'javascript', -src=>'jquery.sparkline.min.js'}],
+							-script=>[{-type=>'javascript', -src=>'js/sorttable.js'},{-type=>'javascript', -src=>'js/jquery-3.3.1.min.js'},{-type=>'javascript', -src=>'js/jquery.sparkline.min.js'},{-type=>'javascript',-code=>"\$(function() {\n\$(\'.inlinerank\').sparkline(\'html\', {type: \'box\', width: \'75\', height: \'8\', raw: false, boxLineColor: \'#5d1e5d\', boxFillColor: \'#ffffff\', disableTooltips: \'true\'} );\n\$(\'.inlinempr\').sparkline(\'html\', {type: \'box\', width: \'75\', height: \'8\', raw: true, minValue: 1000, maxValue: 2000, outlierLineColor: \'#000000\', medianColor: \'#5d1e5d\', lineColor: \'#5d1e5d\', whiskerColor: \'#5d1e5d\', boxLineColor: \'#5d1e5d\', boxFillColor: \'#a582a5\', disableTooltips: \'true\'} );});\n"}],
+							-style=>[{-src=>'css/normalize.css'}, {-src=>'https://fonts.googleapis.com/css?family=Montserrat'}, {-src=>'css/font-awesome.min.css'}, {-src=>'css/bootstrap.min.css'}, {-src=>'css/iprsearch.css'}]
 );
-			   
+
 # turn off buffering for standard output
 select(STDOUT);
 $| = 1;
@@ -59,39 +62,112 @@ my $res = "";
 
 $q =~ s/^\s+|\s+$//g; # trim leading/trailing spaces
 
-my $playerinfo = &loadJSON("playerinfo.json");
+my $searchinfo = &loadJSON("searchinfo.json");
 
 # check parameters and go
 if ($q =~ /^\d+?$/) {
 	my $IFPAid = int($q);
-	
-	print "IFPA ID:$IFPAid\n";
-	
-	# check against loaded playerinfo.json, if found, print that info and quit
-	if ($playerinfo->{IFPA}->{$IFPAid}) {
-		my $name = $playerinfo->{IFPA}->{$IFPAid};
-		my $lb = $playerinfo->{players}->{$name}->{MP_LB};
-		my $rank = $playerinfo->{players}->{$name}->{IFPA_RANK};
-		my $IPR = $playerinfo->{players}->{$name}->{IPR};
-		
-		print "name:$name  LB:$lb  IFPA Rank:$rank  IPR:$IPR  \n";
-		
+	# check IFPA ID against loaded searchinfo.json, if found, print that info and quit
+	if ($searchinfo->{IFPA}->{$IFPAid}) {
+		&resultsIFPA($IFPAid);
 	}
 	else {
-		# TODO: search for target IFPA ID at IFPA site and Matchplay site
+		# get IFPA rank for IFPA ID
 		my $IFPAURL = "https://api.ifpapinball.com/v1/player/$IFPAid?api_key=6655c7e371c30c5cecda4a6c8ad520a4";
+		my $IFPAPage = "";
+		my $playername = "";
+		$res = $ua->request(HTTP::Request->new(GET => $IFPAURL));
+		if ($debugmode){ print("GET " . $IFPAURL . ": " . $res->status_line . "\n"); }
+		if ($res->is_success) {
+			$IFPAPage = $res->decoded_content;
+			my $IFPAresponse = &decodeJSON($IFPAPage);
+			$playername = $IFPAresponse->{player}->{first_name} . " " . $IFPAresponse->{player}->{last_name};
+			$playername =~ s/^\s+|\s+$//g; # trim leading/trailing spaces
+			if ($playername) {
+				$searchinfo->{IFPA}->{$IFPAid} = $playername;
+				$searchinfo->{dateupdated}->{IFPA} = $currentdate;
+				$searchinfo->{players}->{$playername}->{IFPA_ID} = $IFPAresponse->{player}->{player_id};
+				$searchinfo->{players}->{$playername}->{IFPA_RANK} = $IFPAresponse->{player_stats}->{current_wppr_rank};
+				if ($playername eq "Suppresed Player") {
+					$searchinfo->{players}->{$playername}->{IFPA_RANK} = 149;
+				}
+			}
+		}
+		else {
+			if ($debugmode){ print("IFPA [GET " . $IFPAURL . "]: " . $res->status_line . "\n"); }
+		}
+		
+		# get Matchplay ratings for IFPA ID
+		my $matchplayPage = "";
+		my $matchplayURL = "https://matchplay.events/data/ifpa/ratings/$ratingsdate/$IFPAid";
+		$res = $ua->request(HTTP::Request->new(GET => $matchplayURL));
+		if ($debugmode){ print("GET " . $matchplayURL . ": " . $res->status_line . "\n"); }
+		if ($res->is_success) {
+			$matchplayPage = $res->decoded_content;
+			my $matchplayresponse = &decodeJSON($matchplayPage);
+			$searchinfo->{dateupdated}->{MP} = $ratingsdate;
+			$searchinfo->{players}->{$playername}->{MP_LB} = $matchplayresponse->{$IFPAid}->{lower_bound};
+			$searchinfo->{players}->{$playername}->{MP_RD} = $matchplayresponse->{$IFPAid}->{rd};
+		}
+		else { print("Matchplay [GET " . $matchplayURL . "]: " . $res->status_line . "\n"); }		
+		
+		&calculateIPR($playername);
+		&saveJSON($searchinfo, "searchinfo.json");
+		&resultsIFPA($IFPAid);
 	}
 }
 else {
-	my $namesearch = $q;
+	my $namematch = $q;
+
+	# get IFPA ratings for player names
+	my $IFPAURL = "https://api.ifpapinball.com/v1/player/search?api_key=6655c7e371c30c5cecda4a6c8ad520a4&q=$namematch";
+	my $IFPAPage = "";
+	$res = $ua->request(HTTP::Request->new(GET => $IFPAURL));
+	if ($debugmode){ print("GET " . $IFPAURL . ": " . $res->status_line . "\n"); }
+	if ($res->is_success) {
+		$IFPAPage = $res->decoded_content;
+		my $IFPAresponse = &decodeJSON($IFPAPage);
+		if ($debugmode){ print Dumper $IFPAresponse};
+		
+		foreach my $player (@{$IFPAresponse->{search}}) {
+			# look for IFPAid in searchinfo.json
+			my $IFPAid = $player->{player_id};
+			if ($searchinfo->{IFPA}->{$IFPAid}) {
+				# we already have this IFPAid, so skip it
+			}
+			else {
+				# add this player to searchinfo.json
+				my $playername = $player->{first_name} . " " . $player->{last_name};
+				$playername =~ s/^\s+|\s+$//g; # trim leading/trailing spaces
+				$searchinfo->{IFPA}->{$IFPAid} = $playername;
+				$searchinfo->{dateupdated}->{IFPA} = $currentdate;
+				$searchinfo->{players}->{$playername}->{IFPA_ID} = $IFPAid;
+				$searchinfo->{players}->{$playername}->{IFPA_RANK} = $player->{wppr_rank};
+				
+				# get Matchplay ratings for IFPA ID
+				my $matchplayPage = "";
+				my $matchplayURL = "https://matchplay.events/data/ifpa/ratings/$ratingsdate/$IFPAid";
+				$res = $ua->request(HTTP::Request->new(GET => $matchplayURL));
+				if ($debugmode){ print("GET " . $matchplayURL . ": " . $res->status_line . "\n"); }
+				if ($res->is_success) {
+					$matchplayPage = $res->decoded_content;
+					my $matchplayresponse = &decodeJSON($matchplayPage);
+					$searchinfo->{dateupdated}->{MP} = $ratingsdate;
+					$searchinfo->{players}->{$playername}->{MP_LB} = $matchplayresponse->{$IFPAid}->{lower_bound};
+					$searchinfo->{players}->{$playername}->{MP_RD} = $matchplayresponse->{$IFPAid}->{rd};
+				}
+				else { print("Matchplay [GET " . $matchplayURL . "]: " . $res->status_line . "\n"); }		
+
+				&calculateIPR($playername);
+			}
+		}
+	}
+	else { print("IFPA [GET " . $IFPAURL . "]: " . $res->status_line . "\n"); }
 	
-	print "name:$namesearch\n";
-	
-	# TODO: check against loaded playerinfo.json, if any match found, print that info and continue
 	
 	# get Matchplay ratings for player names
 	my $searchPage = "";
-	my $searchURL = "https://matchplay.events/live/ratings/search?query=" . &url_encode($namesearch);
+	my $searchURL = "https://matchplay.events/live/ratings/search?query=" . &url_encode($namematch);
 	$res = $ua->request(HTTP::Request->new(GET => $searchURL));
 	if ($debugmode){ print("GET " . $searchURL . ": " . $res->status_line . "\n"); }
 	if ($res->is_success) {
@@ -105,69 +181,94 @@ else {
 						};
 	my $playertemp  = $scraper->scrape($searchPage);
 
+	my $mpnewplayers = {};
 	my $i = 0;
 	if ($playertemp->{links}) {
 		while ($i < @{$playertemp->{links}}) {
 			if ($playertemp->{links}[$i]) {
 				my $tempid = substr($playertemp->{links}[$i], rindex($playertemp->{links}[$i], "/") + 1);
 				if ($playertemp->{names} && $playertemp->{names}[$i] && $playertemp->{ratings} && $playertemp->{ratings}[$i]) {
-					my $name = $playertemp->{names}[$i];
-					my ($rating, $delta) = split / ±/, $playertemp->{ratings}[$i];
-					
-					print "name:$name  ($tempid)  LB:" . ($rating-$delta) . "\n";
-
-					# TODO: if name already in playerinfo.json then skip to next name...
-					
-					# $players->{$namesearch}->{MP}->{date_collected} = $ratingsdate;
-					# $players->{$namesearch}->{MP}->{rating} = int($rating);
-					# $players->{$namesearch}->{MP}->{rd} = floor($delta/2);
-					# $players->{$namesearch}->{MP}->{lower_bound} = $rating - $delta;
-					# $players->{$namesearch}->{MP}->{upper_bound} = $rating + $delta;
-					
+					my $mpplayername = $playertemp->{names}[$i];
+					# look for name in searchinfo.json
+					my $found = 0;
+					foreach my $cachedname (keys(%{$searchinfo->{players}})) {
+						if (lc($cachedname) eq lc($mpplayername)) {
+							$found = 1;
+						}
+					}
+					# if name not found in searchinfo.json, add it to $mpnewplayers
+					if ($found == 0) {
+						my ($rating, $delta) = split / ±/, $playertemp->{ratings}[$i];
+						if ($mpnewplayers->{players}->{$mpplayername}) {
+							# if already found in new player, overwrite if the RD is lower
+							if ($mpnewplayers->{players}->{$mpplayername}->{MP_RD} > ($delta/2)) {
+								$mpnewplayers->{players}->{$mpplayername}->{MP_LB} = $rating-$delta;
+								$mpnewplayers->{players}->{$mpplayername}->{MP_RD} = $delta/2;
+							}
+						}
+						else {
+							$mpnewplayers->{players}->{$mpplayername}->{MP_LB} = $rating-$delta;
+							$mpnewplayers->{players}->{$mpplayername}->{MP_RD} = $delta/2;
+						}
+					}
 				}
 			}
 			$i++;
 		}
 	}
 	else {
-		print "$namesearch not found in Matchplay Ratings.\n";
 		if ($debugmode){ print("GET " . $searchURL . ": " . $res->status_line . "\n"); }
 	}
-	
-	my $IFPAURL = "https://api.ifpapinball.com/v1/player/search?api_key=6655c7e371c30c5cecda4a6c8ad520a4&q=$namesearch";
-	my $IFPAPage = "";
-	$res = $ua->request(HTTP::Request->new(GET => $IFPAURL));
-	if ($debugmode){ print("GET " . $IFPAURL . ": " . $res->status_line . "\n"); }
-	if ($res->is_success) {
-		$IFPAPage = $res->decoded_content;
-		my $IFPAresponse = &decodeJSON($IFPAPage);
-		if ($debugmode){ print Dumper $IFPAresponse};
-		
-		print Dumper $IFPAresponse;
 
-		foreach my $player (@{$IFPAresponse->{search}}) {
+	# if we found any new names, move them to searchinfo.json
+	foreach my $newcachedname (keys(%{$mpnewplayers->{players}})) {
+		$searchinfo->{dateupdated}->{MP} = $ratingsdate;
+		$searchinfo->{players}->{$newcachedname}->{MP_LB} = $mpnewplayers->{players}->{$newcachedname}->{MP_LB};
+		$searchinfo->{players}->{$newcachedname}->{MP_RD} = $mpnewplayers->{players}->{$newcachedname}->{MP_RD};
+		$searchinfo->{players}->{$newcachedname}->{IFPA_ID} = 0;
+		$searchinfo->{players}->{$newcachedname}->{IFPA_RANK} = 32767;
+		&calculateIPR($newcachedname);
 		
-			# TODO: if name already in playerinfo.json then skip to next name...
-		
-			# $players->{$oldplayername}->{IFPA}->{date_collected} = $currentdate;
-			# $players->{$oldplayername}->{IFPA}->{player}->{player_id} = $player->{player_id};
-			# $players->{$oldplayername}->{IFPA}->{player}->{first_name} = $player->{first_name};
-			# $players->{$oldplayername}->{IFPA}->{player}->{last_name} = $player->{last_name};
-			my $playername = $player->{first_name} . " " . $player->{last_name};
-			$playername =~ s/^\s+|\s+$//g; # trim leading/trailing spaces
-			my $playerid = $player->{player_id};
-			my $playerrank = $player->{wppr_rank};
-			print "$playername  $playerid  $playerrank\n";
-			
-			# $players->{$oldplayername}->{IFPA}->{player}->{city} = $player->{city};
-			# $players->{$oldplayername}->{IFPA}->{player}->{state} = $player->{state};
-			# $players->{$oldplayername}->{IFPA}->{player}->{country_code} = $player->{country_code};
-			# $players->{$oldplayername}->{IFPA}->{player}->{country_name} = $player->{country_name};
-			# $players->{$oldplayername}->{IFPA}->{player_stats}->{current_wppr_rank} = $player->{wppr_rank};
+		# get IFPA ratings for new name
+		my $IFPAURL = "https://api.ifpapinball.com/v1/player/search?api_key=6655c7e371c30c5cecda4a6c8ad520a4&q=$newcachedname";
+		my $IFPAPage = "";
+		$res = $ua->request(HTTP::Request->new(GET => $IFPAURL));
+		if ($debugmode){ print("GET " . $IFPAURL . ": " . $res->status_line . "\n"); }
+		if ($res->is_success) {
+			$IFPAPage = $res->decoded_content;
+			my $IFPAresponse = &decodeJSON($IFPAPage);
+			if($IFPAresponse->{search} && $IFPAresponse->{search} ne "No players found") {
+				foreach my $player (@{$IFPAresponse->{search}}) {
+					# look for IFPAid in searchinfo.json
+					my $IFPAid = $player->{player_id};
+					if ($searchinfo->{IFPA}->{$IFPAid}) {
+						# we already have this IFPAid, so skip it
+					}
+					else {
+						# add this player to searchinfo.json
+						my $playername = $player->{first_name} . " " . $player->{last_name};
+						$playername =~ s/^\s+|\s+$//g; # trim leading/trailing spaces
+						$searchinfo->{IFPA}->{$IFPAid} = $playername;
+						$searchinfo->{dateupdated}->{IFPA} = $currentdate;
+						$searchinfo->{players}->{$playername}->{IFPA_ID} = $IFPAid;
+						$searchinfo->{players}->{$playername}->{IFPA_RANK} = $player->{wppr_rank};
+						&calculateIPR($playername);
+					}
+				}
+			}
 		}
+		else { print("IFPA [GET " . $IFPAURL . "]: " . $res->status_line . "\n"); }
 	}
-	else { print("IFPA [GET " . $IFPAURL . "]: " . $res->status_line . "\n"); }
 	
+	&saveJSON($searchinfo, "searchinfo.json");
+
+	# search for results
+	my @cachedresults = &searchName($namematch);
+	my $cachedresultscount = scalar @cachedresults;
+	if ($cachedresultscount > 0) {
+		&resultsName(@cachedresults);
+	}
+
 }
 
 print $query->end_html; # end the HTML
@@ -200,4 +301,188 @@ sub encodeJSON {
 sub decodeJSON {
 	my ($content) = @_;
 	return $json->allow_nonref->relaxed->decode($content);
+}
+
+# return total elapsed time
+sub timeElapsed {
+	my $now_time = DateTime->from_epoch( epoch => time );
+	my $run_time = $now_time - $start_run;
+	my $result = $run_time->in_units('seconds');
+	if ($result == 0) {
+		$result = ($run_time->in_units('nanoseconds')) / 1000000000;
+		return sprintf('%.1g', $result);
+	}
+	return $result;
+}
+
+# return URL to picture
+sub getPicture {
+	my $IFPAid = $_[0];
+	my $name = $_[1];
+	if (-e "pics/$IFPAid.png") {
+		return "pics/$IFPAid.png";
+	}
+	elsif (-e "pics/$name.png") {
+		return "pics/$name.png";
+	}
+	else {
+		return "pics/blank.png";
+	}
+}
+
+# calculate IPR for player name
+sub calculateIPR {
+	my $playername = $_[0];
+	my $IFPA_IPR = 0;
+	my $MP_IPR = 0;
+	my $IPR = 0;
+	if ($searchinfo->{players}->{$playername}->{IFPA_RANK}) {
+		my $IFPArank = $searchinfo->{players}->{$playername}->{IFPA_RANK};
+		if ($IFPArank < $searchinfo->{thresholds}->{IFPA6}) {
+			$IFPA_IPR = 6;
+		}
+		elsif ($IFPArank < $searchinfo->{thresholds}->{IFPA5}) {
+			$IFPA_IPR = 5;
+		}
+		elsif ($IFPArank < $searchinfo->{thresholds}->{IFPA4}) {
+			$IFPA_IPR = 4;
+		}
+		elsif ($IFPArank < $searchinfo->{thresholds}->{IFPA3}) {
+			$IFPA_IPR = 3;
+		}
+		elsif ($IFPArank < $searchinfo->{thresholds}->{IFPA21}) {
+			$IFPA_IPR = 2;
+		}
+		else {
+			$IFPA_IPR = 1;
+		}
+	}
+	else {
+		$IFPA_IPR = 1;
+	}
+	if ($searchinfo->{players}->{$playername}->{MP_LB}) {
+		my $lb = $searchinfo->{players}->{$playername}->{MP_LB};
+		if ($lb > $searchinfo->{thresholds}->{MP6}) {
+			$MP_IPR = 6;
+		}
+		elsif ($lb > $searchinfo->{thresholds}->{MP5}) {
+			$MP_IPR = 5;
+		}
+		elsif ($lb > $searchinfo->{thresholds}->{MP4}) {
+			$MP_IPR = 4;
+		}
+		elsif ($lb > $searchinfo->{thresholds}->{MP3}) {
+			$MP_IPR = 3;
+		}
+		elsif ($lb > $searchinfo->{thresholds}->{MP21}) {
+			$MP_IPR = 2;
+		}
+		else {
+			$MP_IPR = 1;
+		}
+	}
+	else {
+		$MP_IPR = 1;
+	}
+	$searchinfo->{players}->{$playername}->{IPR} = ($MP_IPR > $IFPA_IPR) ? $MP_IPR : $IFPA_IPR;
+}
+
+sub searchName {
+	my $namematch = $_[0];
+	my @cachedresults;
+	foreach my $playername (sort keys(%{$searchinfo->{players}})) {
+		if (index(lc($playername), lc($namematch)) > -1) {
+			push @cachedresults, $playername;	# found a match
+		}
+	}
+	return @cachedresults;
+}
+
+sub resultsIFPA {
+	my $IFPAid = $_[0];
+	my $name = $searchinfo->{IFPA}->{$IFPAid};
+	my $IPR = "<span class='badge badge-" . $searchinfo->{players}->{$name}->{IPR} . "'>" . $searchinfo->{players}->{$name}->{IPR} . "</span>";
+	my $lb = $searchinfo->{players}->{$name}->{MP_LB};
+	my $plusorminus = $searchinfo->{players}->{$name}->{MP_RD} * 2;
+	my $sparklinempr = "";
+	if ($lb && ($lb > 0)) {
+		$sparklinempr = "<a href=\"https://matchplay.events/live/ratings/search?query=$name\"><span class=\"inlinempr\">1000,$lb," . ($lb+$plusorminus) . "," . ($lb+($plusorminus*2)) . ",2000</span>";
+		$sparklinempr .= "<br/><span>$lb</span></a>";
+	}
+	else {
+		$sparklinempr = "";
+		$lb = "";
+	}
+	my $rank = $searchinfo->{players}->{$name}->{IFPA_RANK};
+	my $sparklinerank = "";
+	if ($rank && ($rank < 32768)) {
+		$sparklinerank = "<a href=\"https://www.ifpapinball.com/player.php?p=$IFPAid\"><span class=\"inlinerank\">32767,1,".(32767-$rank)."</span>";
+		$sparklinerank .= "<br/><span>$rank</span></a>";
+	}
+	else {
+		$sparklinerank = "";
+		$rank = "";
+	}
+	
+	print "<div id='content'>";
+	print table({-class=>'table sortable'}, caption('1 result (' . &timeElapsed() . ' seconds)'),
+		Tr({-class=>'header-row'},
+			th(""), th("Name"), th({-class=>'text-xs-center'}, "IPR"), th({-class=>'text-xs-center'}, "Matchplay LB"), th({-class=>'text-xs-center'}, "IFPA Rank")),
+		Tr(td(img{src=>&getPicture($IFPAid, $name),height=>32,width=>32}),
+			td($name),
+			td({-class=>'text-xs-center'}, $IPR),
+			td({-class=>'text-xs-center'}, $sparklinempr),
+			td({-class=>'text-xs-center'}, $sparklinerank)
+		));
+	print "</div>";
+	print br;	
+}
+
+sub resultsName {
+	my (@cachedresults) = @_;
+	my $cachedresultscount = scalar @cachedresults;
+	my $resultscounttext = "";
+	if ($cachedresultscount > 1) {
+		$resultscounttext = "$cachedresultscount results";
+	}
+	elsif ($cachedresultscount == 1) {
+		$resultscounttext = "$cachedresultscount result";
+	}
+	else {
+		return;
+	}
+		
+	print "<div id='content'>";
+	print "<table class=\"table sortable\"><caption>$resultscounttext (" . &timeElapsed() . " seconds)</caption> <tr class=\"header-row\"><th></th> <th>Name</th> <th class=\"text-xs-center\">IPR</th> <th class=\"text-xs-center\">Matchplay LB</th> <th class=\"text-xs-center\">IFPA Rank</th></tr>";
+	
+	foreach my $playername (@cachedresults) {
+		my $name = $playername;
+		my $IFPAid = $searchinfo->{players}->{$name}->{IFPA_ID} ;
+		my $IPR = "<span class='badge badge-" . $searchinfo->{players}->{$name}->{IPR} . "'>" . $searchinfo->{players}->{$name}->{IPR} . "</span>";
+		my $lb = $searchinfo->{players}->{$name}->{MP_LB};
+		my $plusorminus = $searchinfo->{players}->{$name}->{MP_RD} * 2;
+		my $sparklinempr = "";
+		if ($lb && ($lb > 0)) {
+			$sparklinempr = "<a href=\"https://matchplay.events/live/ratings/search?query=$name\"><span class=\"inlinempr\">1000,$lb," . ($lb+$plusorminus) . "," . ($lb+($plusorminus*2)) . ",2000</span>";
+		$sparklinempr .= "<br/><span>$lb</span></a>";
+		}
+		else {
+			$sparklinempr = "";
+			$lb = "";
+		}
+		my $rank = $searchinfo->{players}->{$name}->{IFPA_RANK};
+		my $sparklinerank = "";
+		if ($rank && ($rank < 32768)) {
+			$sparklinerank = "<a href=\"https://www.ifpapinball.com/player.php?p=$IFPAid\"><span class=\"inlinerank\">32767,1,".(32767-$rank)."</span>";
+			$sparklinerank .= "<br/><span>$rank</span>";
+		}
+		else {
+			$sparklinerank = "";
+			$rank = "";
+		}
+		
+		print "<tr><td class=\"text-xs-center\"; bgcolor=\"#FFFFFF\"><img height=\"32\" src=\"" . &getPicture($IFPAid, $name) . "\" width=\"32\" /></td> <td>$name</td> <td class=\"text-xs-center\">$IPR</td> <td class=\"text-xs-center\">$sparklinempr</td> <td class=\"text-xs-center\">$sparklinerank</td></tr>";
+	}
+	print "</table></div>";
+	print br;	
 }
