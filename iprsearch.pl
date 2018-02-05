@@ -129,36 +129,38 @@ else {
 		my $IFPAresponse = &decodeJSON($IFPAPage);
 		if ($debugmode){ print Dumper $IFPAresponse};
 		
-		foreach my $player (@{$IFPAresponse->{search}}) {
-			# look for IFPAid in searchinfo.json
-			my $IFPAid = $player->{player_id};
-			if ($searchinfo->{IFPA}->{$IFPAid}) {
-				# we already have this IFPAid, so skip it
-			}
-			else {
-				# add this player to searchinfo.json
-				my $playername = $player->{first_name} . " " . $player->{last_name};
-				$playername =~ s/^\s+|\s+$//g; # trim leading/trailing spaces
-				$searchinfo->{IFPA}->{$IFPAid} = $playername;
-				$searchinfo->{dateupdated}->{IFPA} = $currentdate;
-				$searchinfo->{players}->{$playername}->{IFPA_ID} = $IFPAid;
-				$searchinfo->{players}->{$playername}->{IFPA_RANK} = $player->{wppr_rank};
-				
-				# get Matchplay ratings for IFPA ID
-				my $matchplayPage = "";
-				my $matchplayURL = "https://matchplay.events/data/ifpa/ratings/$ratingsdate/$IFPAid";
-				$res = $ua->request(HTTP::Request->new(GET => $matchplayURL));
-				if ($debugmode){ print("GET " . $matchplayURL . ": " . $res->status_line . "\n"); }
-				if ($res->is_success) {
-					$matchplayPage = $res->decoded_content;
-					my $matchplayresponse = &decodeJSON($matchplayPage);
-					$searchinfo->{dateupdated}->{MP} = $ratingsdate;
-					$searchinfo->{players}->{$playername}->{MP_LB} = $matchplayresponse->{$IFPAid}->{lower_bound};
-					$searchinfo->{players}->{$playername}->{MP_RD} = $matchplayresponse->{$IFPAid}->{rd};
+		if($IFPAresponse->{search} && $IFPAresponse->{search} ne "No players found") {
+			foreach my $player (@{$IFPAresponse->{search}}) {
+				# look for IFPAid in searchinfo.json
+				my $IFPAid = $player->{player_id};
+				if ($searchinfo->{IFPA}->{$IFPAid}) {
+					# we already have this IFPAid, so skip it
 				}
-				else { print("Matchplay [GET " . $matchplayURL . "]: " . $res->status_line . "\n"); }		
+				else {
+					# add this player to searchinfo.json
+					my $playername = $player->{first_name} . " " . $player->{last_name};
+					$playername =~ s/^\s+|\s+$//g; # trim leading/trailing spaces
+					$searchinfo->{IFPA}->{$IFPAid} = $playername;
+					$searchinfo->{dateupdated}->{IFPA} = $currentdate;
+					$searchinfo->{players}->{$playername}->{IFPA_ID} = $IFPAid;
+					$searchinfo->{players}->{$playername}->{IFPA_RANK} = $player->{wppr_rank};
+					
+					# get Matchplay ratings for IFPA ID
+					my $matchplayPage = "";
+					my $matchplayURL = "https://matchplay.events/data/ifpa/ratings/$ratingsdate/$IFPAid";
+					$res = $ua->request(HTTP::Request->new(GET => $matchplayURL));
+					if ($debugmode){ print("GET " . $matchplayURL . ": " . $res->status_line . "\n"); }
+					if ($res->is_success) {
+						$matchplayPage = $res->decoded_content;
+						my $matchplayresponse = &decodeJSON($matchplayPage);
+						$searchinfo->{dateupdated}->{MP} = $ratingsdate;
+						$searchinfo->{players}->{$playername}->{MP_LB} = $matchplayresponse->{$IFPAid}->{lower_bound};
+						$searchinfo->{players}->{$playername}->{MP_RD} = $matchplayresponse->{$IFPAid}->{rd};
+					}
+					else { print("Matchplay [GET " . $matchplayURL . "]: " . $res->status_line . "\n"); }		
 
-				&calculateIPR($playername);
+					&calculateIPR($playername);
+				}
 			}
 		}
 	}
