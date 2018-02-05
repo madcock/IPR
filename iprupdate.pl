@@ -178,6 +178,12 @@ foreach my $IFPAid (keys(%$IFPAids)) {
 			$IFPAids->{$IFPAid}->{name} = $playername;
 			print "[$oldplayername] corrected to IFPA standard: [$playername].\n";
 		}
+		# if it's a suppressed player, they get rank 149 (to force a level 6)
+		if ($playername && ($playername eq "Suppresed Player")) {
+			$players->{$oldplayername}->{IFPA}->{player_stats}->{current_wppr_rank} = "149";
+			$players->{$oldplayername}->{IFPA}->{player}->{player_id} = $IFPAid;
+			print "[$oldplayername] is Suppressed Player, setting IFPA rank to 149!\n";
+		}
 		$tempmpifpacount++;
 		if ($debugmode){ print Dumper $players->{$IFPAids->{$IFPAid}->{name}}; }
 	}
@@ -356,7 +362,7 @@ close($csvfh);
 $playerinfo->{dateupdated}->{MP} = $ratingsdate;
 $playerinfo->{dateupdated}->{IFPA} = $currentdate;
 foreach my $playername (sort keys(%$players)) {
-	if ($players->{$playername}->{IFPA}->{player}->{player_id}) {
+	if ($players->{$playername}->{IFPA}->{player_stats}->{current_wppr_rank}) {
 		$playerinfo->{players}->{$playername}->{IFPA_ID} = $players->{$playername}->{IFPA}->{player}->{player_id};
 		$playerinfo->{players}->{$playername}->{IFPA_RANK} = $players->{$playername}->{IFPA}->{player_stats}->{current_wppr_rank};
 		$playerinfo->{IFPA}->{$players->{$playername}->{IFPA}->{player}->{player_id}} = $playername;
@@ -368,9 +374,11 @@ foreach my $playername (sort keys(%$players)) {
 	$playerinfo->{players}->{$playername}->{IPR} = $players->{$playername}->{IPR};
 	if ($players->{$playername}->{MP}->{lower_bound}) {
 		$playerinfo->{players}->{$playername}->{MP_LB} = $players->{$playername}->{MP}->{lower_bound};
+		$playerinfo->{players}->{$playername}->{MP_RD} = $players->{$playername}->{MP}->{rd};
 	}
 	else {
 		$playerinfo->{players}->{$playername}->{MP_LB} = 0;
+		$playerinfo->{players}->{$playername}->{MP_RD} = 0;
 	}
 }
 
