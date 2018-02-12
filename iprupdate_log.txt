@@ -1,0 +1,61 @@
+462 players, 386 IFPA IDs, 76 Non-IFPA players
+386/386 players Matchplay ratings from IFPA IDs collected.
+Aaron Anderson not found in Matchplay Ratings.
+Adam Aly not found in Matchplay Ratings.
+Alex Hoganson not found in Matchplay Ratings.
+Brian Wilka not found in Matchplay Ratings.
+Dan Atchison not found in Matchplay Ratings.
+Dane Hjeresen not found in Matchplay Ratings.
+Daniel Marino not found in Matchplay Ratings.
+Dave Kane not found in Matchplay Ratings.
+Deborah Torrison not found in Matchplay Ratings.
+Eric Garrison not found in Matchplay Ratings.
+Gabrielle Torrison not found in Matchplay Ratings.
+Hannah Schurman not found in Matchplay Ratings.
+Josh Schaffner not found in Matchplay Ratings.
+Josh Swaney not found in Matchplay Ratings.
+Kelsey Myers not found in Matchplay Ratings.
+Kordell Roberts not found in Matchplay Ratings.
+Lo Rojas Sanchez not found in Matchplay Ratings.
+Pete Mitchell not found in Matchplay Ratings.
+Robert Evans not found in Matchplay Ratings.
+Ryan Buma not found in Matchplay Ratings.
+Sam Bury not found in Matchplay Ratings.
+Sherae Lascelles not found in Matchplay Ratings.
+Tyler Bentley Adams not found in Matchplay Ratings.
+Will Shull not found in Matchplay Ratings.
+52/76 players Matchplay ratings from names collected.
+[Kevin Birrell] is Suppressed Player, setting IFPA rank to 149!
+386/386 players IFPA ranks from IFPA IDs collected.
+231 roster players found.
+IPR, Target Players, Target %
+6, 5, 2%
+5, 30, 13%
+4, 46, 20%
+3, 69, 30%
+2, 46, 20%
+1, 35, 15%
+-----231, 100%
+IPR, IFPA, MP LB
+6 < 150 > 1591
+5 < 500 > 1497
+4 < 1000 > 1432
+3 < 2500 > 1346
+2 < 5000 > 1251
+1 >= 5000 <= 1251
+IPR, Roster Players, %
+6, 6, 2.5974025974026%
+5, 30, 12.987012987013%
+4, 47, 20.3463203463203%
+3, 67, 29.004329004329%
+2, 46, 19.9134199134199%
+1, 35, 15.1515151515152%
+-----231, 100%
+IPR, All Players, %
+6, 13, 2.81385281385281%
+5, 48, 10.3896103896104%
+4, 70, 15.1515151515152%
+3, 117, 25.3246753246753%
+2, 98, 21.2121212121212%
+1, 116, 25.1082251082251%
+-----462, 100%

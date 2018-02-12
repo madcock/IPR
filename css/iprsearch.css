@@ -1,0 +1,131 @@
+div { padding: 7px; }
+body {
+  font-family: sans-serif;
+}
+#content {
+  background-color: white;
+  width: 95%;
+  max-width: 666px;
+  min-height: 420px;
+  margin: 0 auto;
+  padding: 2%;
+}
+#content a:link, #content a:visited {
+  color: #008181;
+  text-decoration: none;
+}
+#content a:hover, #content a:active {
+  color: #60a6a8;
+}
+.table th {
+  padding: 1px 3px 1px 3px;
+  vertical-align: bottom;
+  border-top: 0px;
+}
+.table td {
+  padding: 1px 3px 1px 3px;
+  vertical-align: middle;
+  border-top: 0px;
+}
+.header-row {
+  background-color: #008181;
+  color: white;
+  font-weight: bold;
+}
+.table tr:nth-child(even) {
+	background: #EEE;
+}
+
+.badge {
+  color: #fff;
+  background-color: #000;
+  border-radius: 50%;
+  width: 1.618em;
+  height: 1.618em;
+  line-height: 1.618em;
+  display: inline-block;
+  text-shadow: 2px 2px 2px black;
+  text-align: center;
+}
+
+.badge-6 {
+  background-color: rgba(75,5,75,1);
+}
+.badge-5 {
+  background-color: rgba(75,5,75,0.9);
+}
+.badge-4 {
+  background-color: rgba(75,5,75,0.8);
+}
+.badge-3 {
+  background-color: rgba(75,5,75,0.7);
+}
+.badge-2 {
+  background-color: rgba(75,5,75,0.6);
+}
+.badge-1 {
+  background-color: rgba(75,5,75,0.5);
+}
+
+.speech_bubble{
+	background: transparent;
+	margin:10px 0;
+}
+.speech_bubble_content{
+	display:block; 
+	background:#fff; 
+	border:3px solid #ccc; 
+	border-width:0 3px;
+	font-size: 10px;
+	font-weight: 600;
+	line-height: 20px;
+	letter-spacing: .1rem;
+	text-transform: uppercase;
+}
+.speech_bubble p{
+	padding:0.5em 0; 
+	color:#000;
+	margin:0 15px; 
+}
+.sb1, .sb2, .sb3, .sb4, .sb5, .sb6, .sb7{
+	display:block; 
+	overflow:hidden; 
+	font-size:0;
+}
+.sb1, .sb2, .sb3, .sb4, .sb5, .sb6{
+	height:1px;
+}
+.sb4, .sb5, .sb6, .sb7{
+	background:#fff; 
+	border-left:1px solid #ccc; 
+	border-right:1px solid #ccc;
+}
+.sb1 {margin:0 8px; background:#ccc;}
+.sb2 {margin:0 6px; background:#ccc;}
+.sb3 {margin:0 4px; background:#ccc;}
+.sb4 {margin:0 3px; background:#fff; border-width:0 5px;}
+.sb5 {margin:0 2px; background:#fff; border-width:0 4px;}
+.sb6 {margin:0 2px; background:#fff; border-width:0 3px;} 
+.sb7 {margin:0 1px; background:#fff; border-width:0 3px; height:2px;} 
+
+.speech_bubble em{
+	display:block; 
+	width:0; 
+	height:0; 
+	overflow:hidden; 
+	border-top:12px solid #ccc; 
+	border-left:12px dotted transparent; 
+	border-right:12px dotted transparent; 
+	margin-left:50px;
+}
+.speech_bubble span{
+	display:block; 
+	width:0; 
+	height:0; 
+	overflow:hidden; 
+	border-top:10px solid #fff; 
+	border-left:10px dotted transparent; 
+	border-right:10px dotted transparent; 
+	margin-left:52px; 
+	margin-top:-15px;
+}
