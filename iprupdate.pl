@@ -466,7 +466,7 @@ sub saveJSON {
 
 # load the object from a JSON file
 sub loadJSON {
-	my $content = read_file($_[0]);
+	my $content = read_file($_[0], binmode => ':utf8');
 	my $object = &decodeJSON($content);
 	return $object;
 }
@@ -480,5 +480,5 @@ sub encodeJSON {
 # decode a JSON string into a Perl data structure
 sub decodeJSON {
 	my ($content) = @_;
-	return $json->allow_nonref->relaxed->decode($content);
+	return $json->allow_nonref->utf8->relaxed->decode($content);
 }
