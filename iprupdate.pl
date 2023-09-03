@@ -6,8 +6,14 @@ use lib '/home/adcockm/lib/perl5/share/perl5';
 use DateTime;
 use DateTime::Duration;
 use JSON::XS;
+use HTTP::Request::Common qw(POST);
 use LWP::UserAgent;
+use LWP::Protocol::https;
 use Mozilla::CA;
+use HTTP::Cookies;
+use URI;
+use CGI ':standard';
+use Time::HiRes qw(time);
 use utf8;
 use POSIX qw(floor);
 use File::Slurp qw(read_file write_file);
@@ -20,14 +26,15 @@ use warnings;
 
 my $debugmode = 0;
 
-my $ratingsdate = $ARGV[0];
+my $ua = LWP::UserAgent->new(ssl_opts => { SSL_ca_file => Mozilla::CA::SSL_ca_file() });
+$ua->agent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36");
+my $res = "";
+
+my $ratingsdate;
 my $dtCurrent = DateTime->now;
 my $currentdate = $dtCurrent->ymd;
-my $dtDuration = DateTime::Duration->new( days => 8 );	
-my $dtQuery = $dtCurrent->subtract_duration($dtDuration);
-if(!$ratingsdate) {
-	$ratingsdate = $dtQuery->ymd;
-}
+$ratingsdate = &getLastMPRatingDate();
+print "Matchplay Ratings date: $ratingsdate\nIFPA date: $currentdate\n";
 
 my $csvfilename = "playerinfo.csv";
 my @playersCSV;
@@ -48,10 +55,14 @@ my $playercount = 0;
 my $IFPAcount = 0;
 foreach (@playersCSV) {
 	my $line = $_;
-	my ($name, $IFPAid, $team, $role) = split /,/, $line;
-	if ($name eq "Name") { next; }
+	## old format
+	# my ($name, $IFPAid, $team, $role) = split /,/, $line;
+	# if ($name eq "Name") { next; }
+	my ($name, $team, $role, $IFPAid, $division) = split /,/, $line;
+	if ($name eq "Player Name") { next; }
 	$players->{$name}->{team} = $team;
 	$players->{$name}->{role} = $role;
+	$players->{$name}->{division} = $division;
 	if ($IFPAid) {
 		$IFPAids->{$IFPAid}->{name} = $name;
 		$matchplayURL .= $IFPAid . ",";
@@ -69,9 +80,38 @@ print "$playercount players, $IFPAcount IFPA IDs, $MPcount Non-IFPA players\n";
 my $json = new JSON::XS;
 $json->canonical(1);
 
-my $ua = LWP::UserAgent->new(ssl_opts => { SSL_ca_file => Mozilla::CA::SSL_ca_file() });
-$ua->agent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36");
-my $res = "";
+# get the most recent Ratings date from MP
+sub getLastMPRatingDate {
+	my $ratingsPage = "";
+	my $ratingsURL = "https://matchplay.events/live/ratings";
+	$res = $ua->request(HTTP::Request->new(GET => $ratingsURL));
+	if ($debugmode){ print("DEBUG: GET " . $ratingsURL . ": " . $res->status_line . "\n"); }
+	if ($res->is_success) {
+		$ratingsPage = $res->decoded_content;
+	}
+	else { print("ERROR [" . $ratingsURL . "]: " . $res->status_line . "\n"); exit 1; }
+
+	my $scraper = scraper { process '//div[contains(@class, "box")]//a', 'ratingperiod' => 'TEXT';
+						};
+	my $tempratings  = $scraper->scrape($ratingsPage);
+	my $tempdate = $tempratings->{ratingperiod};
+
+	my %map = ( 'Jan' => '1', 'Feb' => '2', 'Mar' => '3', 'Apr' => '4',
+				'May' => '5', 'Jun' => '6', 'Jul' => '7', 'Aug' => '8',
+				'Sep' => '9', 'Oct' => '10', 'Nov' => '11', 'Dec' => '12');
+	$tempdate =~ s/(...) (.*), (....)/$3-$map{$1}-$2/;
+	my ($year, $month, $day) = split /-/, $tempdate;
+	my $dtRatingsDate = DateTime->new( 
+		year   => $year,
+		month  => $month,
+		day    => $day
+	);
+	my $dtDuration = DateTime::Duration->new( days => 1 );	
+	my $dtQuery = $dtRatingsDate->subtract_duration($dtDuration);
+	$tempdate = $dtQuery->ymd;
+	
+	return $tempdate;
+}
 
 # get Matchplay ratings for IFPA IDs
 my $matchplayPage = "";
@@ -89,6 +129,12 @@ if ($res->is_success) {
 		$players->{$IFPAids->{$IFPAid}->{name}}->{MP}->{lower_bound} = $matchplayresponse->{$IFPAid}->{lower_bound};
 		$players->{$IFPAids->{$IFPAid}->{name}}->{MP}->{upper_bound} = $matchplayresponse->{$IFPAid}->{rating} + ($matchplayresponse->{$IFPAid}->{rd} * 2);
 		$tempmpifpacount++;
+		if ($matchplayresponse->{$IFPAid}->{rating} == 1500 &&
+			$matchplayresponse->{$IFPAid}->{rd} == 125 &&
+			$matchplayresponse->{$IFPAid}->{lower_bound} == 1250) {
+			push @nonIFPA, $IFPAids->{$IFPAid}->{name};
+			print("WARNING [" . $IFPAids->{$IFPAid}->{name} . "]: default MR values returned.\n");
+		}
 	}
 	print "$tempmpifpacount/$IFPAcount players Matchplay ratings from IFPA IDs collected.\n";
 }
@@ -98,34 +144,50 @@ else { print("Matchplay [GET " . $matchplayURL . "]: " . $res->status_line . "\n
 my $tempmpcount = 0;
 foreach (@nonIFPA) {
 	my $name = $_;
-	my $searchPage = "";
-	my $searchURL = "https://matchplay.events/live/ratings/search?query=" . &url_encode($name);
-	$res = $ua->request(HTTP::Request->new(GET => $searchURL));
-	if ($debugmode){ print("GET " . $searchURL . ": " . $res->status_line . "\n"); }
-	if ($res->is_success) {
-		$searchPage = $res->decoded_content;
-	}
-	else { print("ERROR [" . $searchURL . "]: " . $res->status_line . "\n"); exit 1; }
-
-	my $scraper = scraper { process '//tr/td[2]', 'ratings[]' => 'TEXT'; };
-	my $playertemp  = $scraper->scrape($searchPage);
-
-	if ($playertemp->{ratings}) {
-		if ($playertemp->{ratings}[0]) {
-			my ($rating, $delta) = split / ±/, $playertemp->{ratings}[0];
-			$players->{$name}->{MP}->{date_collected} = $ratingsdate;
-			$players->{$name}->{MP}->{rating} = int($rating);
-			$players->{$name}->{MP}->{rd} = floor($delta/2);
-			$players->{$name}->{MP}->{lower_bound} = $rating - $delta;
-			$players->{$name}->{MP}->{upper_bound} = $rating + $delta;
-			$tempmpcount++;
-		}
-	}
-	else {
-		print "$name not found in Matchplay Ratings.\n";
+	if ($name) {
+		my $searchPage = "";
+		my $searchURL = "https://matchplay.events/live/ratings/search?query=" . &url_encode($name);
+		$res = $ua->request(HTTP::Request->new(GET => $searchURL));
 		if ($debugmode){ print("GET " . $searchURL . ": " . $res->status_line . "\n"); }
+		if ($res->is_success) {
+			$searchPage = $res->decoded_content;
+		}
+		else {
+			print("ERROR [" . $searchURL . "]: " . $res->status_line . "\n");
+			sleep 5;
+			# retry once
+			$res = $ua->request(HTTP::Request->new(GET => $searchURL));
+			if ($debugmode){ print("GET " . $searchURL . ": " . $res->status_line . "\n"); }
+			if ($res->is_success) {
+				$searchPage = $res->decoded_content;
+				print("RETRY [" . $searchURL . "]: " . $res->status_line . "\n");
+			}
+			else {
+				print("ERROR [" . $searchURL . "]: " . $res->status_line . "\n");
+				exit 1;
+			}
+		}
+
+		my $scraper = scraper { process '//tr/td[2]', 'ratings[]' => 'TEXT'; };
+		my $playertemp  = $scraper->scrape($searchPage);
+
+		if ($playertemp->{ratings}) {
+			if ($playertemp->{ratings}[0]) {
+				my ($rating, $delta) = split / ±/, $playertemp->{ratings}[0];
+				$players->{$name}->{MP}->{date_collected} = $ratingsdate;
+				$players->{$name}->{MP}->{rating} = int($rating);
+				$players->{$name}->{MP}->{rd} = floor($delta/2);
+				$players->{$name}->{MP}->{lower_bound} = $rating - $delta;
+				$players->{$name}->{MP}->{upper_bound} = $rating + $delta;
+				$tempmpcount++;
+			}
+		}
+		else {
+			print "$name not found in Matchplay Ratings.\n";
+			if ($debugmode){ print("GET " . $searchURL . ": " . $res->status_line . "\n"); }
+		}
+		sleep 2;
 	}
-	sleep 1;
 }
 print "$tempmpcount/$MPcount players Matchplay ratings from names collected.\n";
 
@@ -145,6 +207,10 @@ foreach my $IFPAid (keys(%$IFPAids)) {
 		$players->{$oldplayername}->{IFPA}->{player}->{first_name} = $IFPAresponse->{player}->{first_name};
 		$players->{$oldplayername}->{IFPA}->{player}->{last_name} = $IFPAresponse->{player}->{last_name};
 		my $playername = $IFPAresponse->{player}->{first_name} . " " . $IFPAresponse->{player}->{last_name};
+		
+		if (!$IFPAresponse->{player}->{first_name} || !$IFPAresponse->{player}->{last_name}) {
+			print "Warning: id [". $IFPAresponse->{player}->{player_id} . "], first [". $IFPAresponse->{player}->{first_name} . "], last [". $IFPAresponse->{player}->{last_name} . "]\n";
+		}
 		$playername =~ s/^\s+|\s+$//g; # trim leading/trailing spaces
 		$players->{$oldplayername}->{IFPA}->{player}->{city} = $IFPAresponse->{player}->{city};
 		$players->{$oldplayername}->{IFPA}->{player}->{state} = $IFPAresponse->{player}->{state};
@@ -188,14 +254,14 @@ foreach my $IFPAid (keys(%$IFPAids)) {
 		if ($debugmode){ print Dumper $players->{$IFPAids->{$IFPAid}->{name}}; }
 	}
 	else { print("IFPA [GET " . $IFPAURL . "]: " . $res->status_line . "\n"); }
-	sleep 1;
+	sleep 2;
 }
 print "$tempmpifpacount/$IFPAcount players IFPA ranks from IFPA IDs collected.\n";
 
 # calculate IPR for every player
 my @rosterplayers_lb;
 foreach my $playername (keys(%$players)) {
-	if ($players->{$playername}->{team}) {
+	if ($players->{$playername}->{team} && !(index($players->{$playername}->{team}, "PDX-") == 0)) {
 		if ($players->{$playername}->{MP}->{lower_bound}) {
 			my $lb = $players->{$playername}->{MP}->{lower_bound};
 			if ($debugmode){ print("Roster player $playername on " . $players->{$playername}->{team} . " has LB = $lb\n"); }
@@ -210,14 +276,19 @@ foreach my $playername (keys(%$players)) {
 my $rosterplayers = scalar @rosterplayers_lb;
 print "$rosterplayers roster players found.\n";
 my @ranktargetplayers;
-my @ranktargetpercentage = (0,.15,.20,.30,.20,.13,.02);
+#my @ranktargetpercentage = (0,.15,.20,.25,.20,.15,.05); # original
+my @ranktargetpercentage = (0,.30,.20,.15,.15,.15,.05); # new adjusted 1 and 2 Dave's suggestion
+
+# ---- dynamic start ----
 my @ranklbtarget;
-$ranktargetplayers[6] = int($rosterplayers * $ranktargetpercentage[6] + .5); # 2%
-$ranktargetplayers[5] = int($rosterplayers * $ranktargetpercentage[5] + .5); # 13%
-$ranktargetplayers[4] = int($rosterplayers * $ranktargetpercentage[4] + .5); # 20%
-$ranktargetplayers[3] = int($rosterplayers * $ranktargetpercentage[3] + .5); # 30%
-$ranktargetplayers[2] = int($rosterplayers * $ranktargetpercentage[2] + .5); # 20%
-$ranktargetplayers[1] = int($rosterplayers * $ranktargetpercentage[1] + .5); # 15%
+# my @ranklbtarget = (0,1283,1283,1361,1433,1488,1589);
+# ---- dynamic end ----
+$ranktargetplayers[6] = int($rosterplayers * $ranktargetpercentage[6] + .5);
+$ranktargetplayers[5] = int($rosterplayers * $ranktargetpercentage[5] + .5);
+$ranktargetplayers[4] = int($rosterplayers * $ranktargetpercentage[4] + .5);
+$ranktargetplayers[3] = int($rosterplayers * $ranktargetpercentage[3] + .5);
+$ranktargetplayers[2] = int($rosterplayers * $ranktargetpercentage[2] + .5);
+$ranktargetplayers[1] = int($rosterplayers * $ranktargetpercentage[1] + .5);
 print "IPR, Target Players, Target %\n";
 my $targetplayertotal = 0;
 my $targetpercenttotal = 0;
@@ -232,6 +303,7 @@ print $targetplayertotal . ", " . $targetpercenttotal . "%\n";
 if ($debugmode){ print Dumper @ranktargetplayers};
 @rosterplayers_lb = sort { $b <=> $a } @rosterplayers_lb;
 if ($debugmode){ print Dumper @rosterplayers_lb};
+# ---- dynamic start ----
 my $i = 0;
 my $currentrank = 6;
 foreach (@rosterplayers_lb) {
@@ -244,7 +316,9 @@ foreach (@rosterplayers_lb) {
 	}
 	if ($currentrank < 2) { last; }
 }
-my @ranktargetIFPA = (0,5000,5000,2500,1000,500,150);
+# ---- dynamic end ----
+# my @ranktargetIFPA = (0,5000,5000,2500,1000,500,250); # default (original)
+my @ranktargetIFPA = (0,5000,5000,2500,1500,1000,500); # Dave's new stuff
 my @ranktargetgrade = (0,"D","C","B","A","AA","AAA");
 print "IPR, IFPA, MP LB\n";
 for (my $i=6; $i > 2; $i--) {
@@ -313,7 +387,7 @@ foreach my $playername (keys(%$players)) {
 	$players->{$playername}->{MP}->{IPR} = $MP_IPR;
 	$players->{$playername}->{IFPA}->{IPR} = $IFPA_IPR;
 	$players->{$playername}->{IPR} = ($MP_IPR > $IFPA_IPR) ? $MP_IPR : $IFPA_IPR;
-	if ($players->{$playername}->{team}) {
+	if ($players->{$playername}->{team} && !(index($players->{$playername}->{team}, "PDX-") == 0)) {
 		$rankrosterplayers[$MP_IPR] +=1;
 		$rankallplayers[$players->{$playername}->{IPR}] +=1;
 	}
@@ -349,14 +423,27 @@ print $allplayertotal . ", " . $allpercenttotal . "%\n";
 # save new CSV with updated player names
 open(my $csvfh, '>:encoding(UTF-8)', $csvfilename)
 	or die "Failed to open file: $!\n";	
-print $csvfh "Name,IFPA ID,Team,Role\n";
+# print $csvfh "Name,IFPA ID,Team,Role\n";
+print $csvfh "Player Name,Team Code,Role (C/A/P),IFPA,DIV\n";
 foreach my $playername (sort keys(%$players)) {
 	my $IFPAid = $players->{$playername}->{IFPA}->{player}->{player_id} ? $players->{$playername}->{IFPA}->{player}->{player_id} : "";
 	my $team = $players->{$playername}->{team} ? $players->{$playername}->{team} : "";
 	my $role = $players->{$playername}->{role} ? $players->{$playername}->{role} : "";
-	print $csvfh "$playername,$IFPAid,$team,$role\n";
+	my $division = $players->{$playername}->{division} ? $players->{$playername}->{division} : "";
+	# print $csvfh "$playername,$IFPAid,$team,$role\n";
+	print $csvfh "$playername,$team,$role,$IFPAid,$division\n";
 }
 close($csvfh);
+
+# special case for deceased players (after actual IPR taken into account for stats above)
+print "Special case:";
+print "Setting IPR to 10 for deceased players.";
+$players->{"Elijah Nelson"}->{IPR} = 10;
+$players->{"Jasmine Palmer"}->{IPR} = 10;
+$players->{"Sarah Decory"}->{IPR} = 10;
+$players->{"Serra Decory"}->{IPR} = 10;
+$players->{"Selfick Ng-Simancas"}->{IPR} = 10;
+$players->{"Benton Seybold"}->{IPR} = 10;
 
 # copy information to playerinfo
 $playerinfo->{dateupdated}->{MP} = $ratingsdate;
@@ -365,6 +452,9 @@ foreach my $playername (sort keys(%$players)) {
 	if ($players->{$playername}->{IFPA}->{player_stats}->{current_wppr_rank}) {
 		$playerinfo->{players}->{$playername}->{IFPA_ID} = $players->{$playername}->{IFPA}->{player}->{player_id};
 		$playerinfo->{players}->{$playername}->{IFPA_RANK} = $players->{$playername}->{IFPA}->{player_stats}->{current_wppr_rank};
+		if (!$playername) {
+			print "Warning: player_id undefined for [$playername]\n";
+		}
 		$playerinfo->{IFPA}->{$players->{$playername}->{IFPA}->{player}->{player_id}} = $playername;
 	}
 	else {
@@ -382,13 +472,27 @@ foreach my $playername (sort keys(%$players)) {
 	}
 }
 
-&saveJSON($players, "fullplayerinfo.json");
-&saveJSON($playerinfo, "playerinfo.json");
+# read in old IPR values
+my @tempCSV;
+open(my $oldspreadsheetfh, "<", "temp.csv")
+	or die "Failed to open file: $!\n";
+while(<$oldspreadsheetfh>) { 
+	chomp; 
+	push @tempCSV, $_;
+} 
+close $oldspreadsheetfh;
 
-# save new CSV with updated player names
+foreach (@tempCSV) {
+	my $line = $_;
+	my ($MPIPR,$IFPAIPR,$oldIPR,$IPR,$playername,$team,$role,$IFPAid,$IFPArank,$MPlb,$MPrd,$MPrating) = split /,/, $line;
+	if ($playername eq "Name") { next; }
+	$players->{$playername}->{oldIPR} = $IPR;
+}
+
+# save new temp CSV with updated player names
 open(my $spreadsheetfh, '>:encoding(UTF-8)', "temp.csv")
 	or die "Failed to open file: $!\n";	
-print $spreadsheetfh "MP RP,IFPA RP,IPR,Name,Team,Role,IFPA ID,IFPA Rank,MP LB,MP RD,MPR\n";
+print $spreadsheetfh "MP RP,IFPA RP,Old IPR,IPR,Name,Team,Role,IFPA ID,IFPA Rank,MP LB,MP RD,MPR\n";
 foreach my $playername (sort keys(%$players)) {
 	my $IFPAid = $players->{$playername}->{IFPA}->{player}->{player_id} ? $players->{$playername}->{IFPA}->{player}->{player_id} : "";
 	my $IFPArank = $players->{$playername}->{IFPA}->{player_stats}->{current_wppr_rank} ? $players->{$playername}->{IFPA}->{player_stats}->{current_wppr_rank} : "";
@@ -400,7 +504,8 @@ foreach my $playername (sort keys(%$players)) {
 	my $team = $players->{$playername}->{team} ? $players->{$playername}->{team} : "";
 	my $role = $players->{$playername}->{role} ? $players->{$playername}->{role} : "";
 	my $IPR = $players->{$playername}->{IPR} ? $players->{$playername}->{IPR} : "";
-	print $spreadsheetfh "$MPIPR,$IFPAIPR,$IPR,$playername,$team,$role,$IFPAid,$IFPArank,$MPlb,$MPrd,$MPrating\n";
+	my $oldIPR = $players->{$playername}->{oldIPR} ? $players->{$playername}->{oldIPR} : "";
+	print $spreadsheetfh "$MPIPR,$IFPAIPR,$oldIPR,$IPR,$playername,$team,$role,$IFPAid,$IFPArank,$MPlb,$MPrd,$MPrating\n";
 }
 close($spreadsheetfh);
 
@@ -452,6 +557,16 @@ foreach my $playername (sort keys(%$players)) {
 	print $fullspreadsheetfh "$MP_IPR,$IFPA_IPR,$IPR,$playername,$team,$role,$IFPA_current_wppr_rank,$MP_lower_bound,$IFPA_date_collected,$IFPA_player_age,$IFPA_player_city,$IFPA_player_country_code,$IFPA_country_name,$IFPA_excluded_flag,$IFPA_first_name,$IFPA_registered,$IFPA_initials,$IFPA_last_name,$IFPA_player_id,$IFPA_state,$IFPA_average_finish,$IFPA_average_finish_last_year,$IFPA_best_finish,$IFPA_best_finish_count,$IFPA_current_wppr_value,$IFPA_efficiency_rank,$IFPA_efficiency_value,$IFPA_highest_rank,$IFPA_highest_rank_date,$IFPA_last_month_rank,$IFPA_last_year_rank,$IFPA_ratings_rank,$IFPA_ratings_value,$IFPA_total_active_events,$IFPA_total_events_all_time,$IFPA_total_events_away,$IFPA_wppr_points_all_time,$MP_date_collected,$MP_rating,$MP_rd,$MP_upper_bound\n"
 }
 close($fullspreadsheetfh);
+
+&saveJSON($players, "fullplayerinfo.json");
+
+#remove PDX- teams
+foreach my $playername (sort keys(%$players)) {
+	if ($players->{$playername}->{team} && (index($players->{$playername}->{team}, "PDX-") == 0)) {
+		delete $players->{$playername}->{team};
+	}
+}
+&saveJSON($playerinfo, "playerinfo.json");
 
 # save the object to a JSON file
 sub saveJSON {
