@@ -258,84 +258,21 @@ foreach my $IFPAid (keys(%$IFPAids)) {
 }
 print "$tempmpifpacount/$IFPAcount players IFPA ranks from IFPA IDs collected.\n";
 
-# calculate IPR for every player
-my @rosterplayers_lb;
-foreach my $playername (keys(%$players)) {
-	if ($players->{$playername}->{team} && !(index($players->{$playername}->{team}, "PDX-") == 0)) {
-		if ($players->{$playername}->{MP}->{lower_bound}) {
-			my $lb = $players->{$playername}->{MP}->{lower_bound};
-			if ($debugmode){ print("Roster player $playername on " . $players->{$playername}->{team} . " has LB = $lb\n"); }
-			push @rosterplayers_lb, $lb;
-		}
-		else {
-			if ($debugmode){ print("Roster player $playername on " . $players->{$playername}->{team} . " has LB = null\n"); }
-			push @rosterplayers_lb, 0;
-		}
-	}
-}
-my $rosterplayers = scalar @rosterplayers_lb;
-print "$rosterplayers roster players found.\n";
-my @ranktargetplayers;
-#my @ranktargetpercentage = (0,.15,.20,.25,.20,.15,.05); # original
-my @ranktargetpercentage = (0,.30,.20,.15,.15,.15,.05); # new adjusted 1 and 2 Dave's suggestion
-
-# ---- dynamic start ----
-my @ranklbtarget;
-# my @ranklbtarget = (0,1283,1283,1361,1433,1488,1589);
-# ---- dynamic end ----
-$ranktargetplayers[6] = int($rosterplayers * $ranktargetpercentage[6] + .5);
-$ranktargetplayers[5] = int($rosterplayers * $ranktargetpercentage[5] + .5);
-$ranktargetplayers[4] = int($rosterplayers * $ranktargetpercentage[4] + .5);
-$ranktargetplayers[3] = int($rosterplayers * $ranktargetpercentage[3] + .5);
-$ranktargetplayers[2] = int($rosterplayers * $ranktargetpercentage[2] + .5);
-$ranktargetplayers[1] = int($rosterplayers * $ranktargetpercentage[1] + .5);
-print "IPR, Target Players, Target %\n";
-my $targetplayertotal = 0;
-my $targetpercenttotal = 0;
-for (my $i=6; $i > 0; $i--) {
-	print $i . ", " . $ranktargetplayers[$i] . ", " . ($ranktargetpercentage[$i]*100) . "%\n";
-	$targetplayertotal += $ranktargetplayers[$i];
-	$targetpercenttotal += $ranktargetpercentage[$i]*100;
-}
-print "-----";
-print $targetplayertotal . ", " . $targetpercenttotal . "%\n";
-
-if ($debugmode){ print Dumper @ranktargetplayers};
-@rosterplayers_lb = sort { $b <=> $a } @rosterplayers_lb;
-if ($debugmode){ print Dumper @rosterplayers_lb};
-# ---- dynamic start ----
-my $i = 0;
-my $currentrank = 6;
-foreach (@rosterplayers_lb) {
-	my $currentlb = $_;
-	$i++;
-	if ($i == $ranktargetplayers[$currentrank]) {
-		$ranklbtarget[$currentrank] = $currentlb - 1;
-		$currentrank--;
-		$i = 0;
-	}
-	if ($currentrank < 2) { last; }
-}
-# ---- dynamic end ----
+# assign IPR for players based on IFPA rank
 # my @ranktargetIFPA = (0,5000,5000,2500,1000,500,250); # default (original)
 my @ranktargetIFPA = (0,5000,5000,2500,1500,1000,500); # Dave's new stuff
-my @ranktargetgrade = (0,"D","C","B","A","AA","AAA");
-print "IPR, IFPA, MP LB\n";
+# my @ranktargetgrade = (0,"D","C","B","A","AA","AAA"); # unused
+print "IPR, IFPA\n";
 for (my $i=6; $i > 2; $i--) {
 	$playerinfo->{thresholds}->{"IFPA" . $i} = $ranktargetIFPA[$i];
-	$playerinfo->{thresholds}->{"MP" . $i} = $ranklbtarget[$i];
-	print $i . " < " . $ranktargetIFPA[$i] . " > " . $ranklbtarget[$i] . "\n";
+	print $i . " < " . $ranktargetIFPA[$i] . "\n";
 }
-print "2 < " . $ranktargetIFPA[2] . " > " . $ranklbtarget[2] . "\n";
-print "1 >= " . $ranktargetIFPA[1] . " <= " . $ranklbtarget[2] . "\n";
+print "2 < " . $ranktargetIFPA[2] . "\n";
+print "1 >= " . $ranktargetIFPA[1] . "\n";
 $playerinfo->{thresholds}->{IFPA21} = int($ranktargetIFPA[2]);
-$playerinfo->{thresholds}->{MP21} = int($ranklbtarget[2]);
-my @rankrosterplayers = (0,0,0,0,0,0,0);
-my @rankallplayers = (0,0,0,0,0,0,0);
+my @rankrosterplayersIFPA = (0,0,0,0,0,0,0);
 foreach my $playername (keys(%$players)) {
 	my $IFPA_IPR = 0;
-	my $MP_IPR = 0;
-	my $IPR = 0;
 	if ($players->{$playername}->{IFPA}->{player_stats}->{current_wppr_rank}) {
 		my $IFPArank = $players->{$playername}->{IFPA}->{player_stats}->{current_wppr_rank};
 		if ($IFPArank < $ranktargetIFPA[6]) {
@@ -360,6 +297,85 @@ foreach my $playername (keys(%$players)) {
 	else {
 		$IFPA_IPR = 1;
 	}
+	$players->{$playername}->{IFPA}->{IPR} = $IFPA_IPR;
+	
+	if ($players->{$playername}->{team} && !(index($players->{$playername}->{team}, "PDX-") == 0)) {
+		$rankrosterplayersIFPA[$IFPA_IPR] +=1;
+	}
+}
+
+# create list of Matchplay lower bounds for roster players
+my @rosterplayers_lb;
+foreach my $playername (keys(%$players)) {
+	if ($players->{$playername}->{team} && !(index($players->{$playername}->{team}, "PDX-") == 0)) {
+		if ($players->{$playername}->{MP}->{lower_bound}) {
+			my $lb = $players->{$playername}->{MP}->{lower_bound};
+			if ($debugmode){ print("Roster player $playername on " . $players->{$playername}->{team} . " has LB = $lb\n"); }
+			push @rosterplayers_lb, $lb;
+		}
+		else {
+			if ($debugmode){ print("Roster player $playername on " . $players->{$playername}->{team} . " has LB = null\n"); }
+			push @rosterplayers_lb, 0;
+		}
+	}
+}
+my $rosterplayers = scalar @rosterplayers_lb;
+print "$rosterplayers roster players found.\n";
+my @ranktargetplayers;
+#my @ranktargetpercentage = (0,.15,.20,.25,.20,.15,.05); # original
+my @ranktargetpercentage = (0,.30,.20,.15,.15,.15,.05); # new adjusted 1 and 2 Dave's suggestion
+my @ranklbtarget;
+# my @ranklbtarget = (0,1283,1283,1361,1433,1488,1589);
+$ranktargetplayers[6] = int($rosterplayers * $ranktargetpercentage[6] + .5);
+$ranktargetplayers[5] = int($rosterplayers * $ranktargetpercentage[5] + .5);
+$ranktargetplayers[4] = int($rosterplayers * $ranktargetpercentage[4] + .5);
+$ranktargetplayers[3] = int($rosterplayers * $ranktargetpercentage[3] + .5);
+$ranktargetplayers[2] = int($rosterplayers * $ranktargetpercentage[2] + .5);
+$ranktargetplayers[1] = int($rosterplayers * $ranktargetpercentage[1] + .5);
+
+# print target roster player counts and percentages
+print "IPR, Target Players, Target %\n";
+my $targetplayertotal = 0;
+my $targetpercenttotal = 0;
+for (my $i=6; $i > 0; $i--) {
+	print $i . ", " . $ranktargetplayers[$i] . ", " . ($ranktargetpercentage[$i]*100) . "%\n";
+	$targetplayertotal += $ranktargetplayers[$i];
+	$targetpercenttotal += $ranktargetpercentage[$i]*100;
+}
+print "-----";
+print $targetplayertotal . ", " . $targetpercenttotal . "%\n";
+
+# calculate initial IPR thresholds based on Matchplay lower bounds for roster players
+if ($debugmode){ print Dumper @ranktargetplayers};
+@rosterplayers_lb = sort { $b <=> $a } @rosterplayers_lb;
+if ($debugmode){ print Dumper @rosterplayers_lb};
+my $i = 0;
+my $currentrank = 6;
+foreach (@rosterplayers_lb) {
+	my $currentlb = $_;
+	$i++;
+	if ($i == $ranktargetplayers[$currentrank]) {
+		$ranklbtarget[$currentrank] = $currentlb - 1;
+		$currentrank--;
+		$i = 0;
+	}
+	if ($currentrank < 2) { last; }
+}
+
+# print calculated ranges for roster players based on IFPA rank and Matchplay lower bound
+print "IPR, IFPA, MP LB (no IFPA adjustment)\n";
+for (my $i=6; $i > 2; $i--) {
+	$playerinfo->{thresholds}->{"MP" . $i} = $ranklbtarget[$i];
+	print $i . " < " . $ranktargetIFPA[$i] . " > " . $ranklbtarget[$i] . "\n";
+}
+print "2 < " . $ranktargetIFPA[2] . " > " . $ranklbtarget[2] . "\n";
+print "1 >= " . $ranktargetIFPA[1] . " <= " . $ranklbtarget[2] . "\n";
+$playerinfo->{thresholds}->{MP21} = int($ranklbtarget[2]);
+
+# assign IPR for players based on Matchplay lower bound
+my @adjustedrosterplayers_lb;
+foreach my $playername (keys(%$players)) {
+	my $MP_IPR = 0;
 	if ($players->{$playername}->{MP}->{lower_bound}) {
 		my $lb = $players->{$playername}->{MP}->{lower_bound};
 		if ($lb > $ranklbtarget[6]) {
@@ -385,16 +401,99 @@ foreach my $playername (keys(%$players)) {
 		$MP_IPR = 1;
 	}
 	$players->{$playername}->{MP}->{IPR} = $MP_IPR;
-	$players->{$playername}->{IFPA}->{IPR} = $IFPA_IPR;
-	$players->{$playername}->{IPR} = ($MP_IPR > $IFPA_IPR) ? $MP_IPR : $IFPA_IPR;
+
+	# only add to adjusted roster players if MP IPR is higher than or equal to IFPA IPR
 	if ($players->{$playername}->{team} && !(index($players->{$playername}->{team}, "PDX-") == 0)) {
-		$rankrosterplayers[$MP_IPR] +=1;
+		if ($players->{$playername}->{MP}->{IPR} >= $players->{$playername}->{IFPA}->{IPR}) {
+			if ($players->{$playername}->{MP}->{lower_bound}) {
+				my $lb = $players->{$playername}->{MP}->{lower_bound};
+				push @adjustedrosterplayers_lb, $lb;
+			}
+		}
+		else {
+			# this player's IFPA rank determines their IPR, so we remove them from the adjusted count target
+			my $IPR = $players->{$playername}->{IFPA}->{IPR};
+			$players->{$playername}->{IPR} = $IPR;
+			$ranktargetplayers[$IPR] = $ranktargetplayers[$IPR] - 1;
+		}
+	}
+}
+my $adjustedrosterplayers = scalar @adjustedrosterplayers_lb;
+print "$adjustedrosterplayers roster players found after IFPA ranked players removed.\n";
+
+# calculate IPR thresholds based on Matchplay lower bounds for adjusted roster players
+@adjustedrosterplayers_lb = sort { $b <=> $a } @adjustedrosterplayers_lb;
+if ($debugmode){ print Dumper @adjustedrosterplayers_lb};
+$i = 0;
+$currentrank = 6;
+foreach (@adjustedrosterplayers_lb) {
+	my $currentlb = $_;
+	$i++;
+	if ($i == $ranktargetplayers[$currentrank]) {
+		$ranklbtarget[$currentrank] = $currentlb - 1;
+		$currentrank--;
+		$i = 0;
+	}
+	if ($currentrank < 2) { last; }
+}
+
+# print calculated ranges for roster players based on IFPA rank and Matchplay lower bound
+print "IPR, IFPA, MP LB\n";
+for (my $i=6; $i > 2; $i--) {
+	$playerinfo->{thresholds}->{"MP" . $i} = $ranklbtarget[$i];
+	print $i . " < " . $ranktargetIFPA[$i] . " > " . $ranklbtarget[$i] . "\n";
+}
+print "2 < " . $ranktargetIFPA[2] . " > " . $ranklbtarget[2] . "\n";
+print "1 >= " . $ranktargetIFPA[1] . " <= " . $ranklbtarget[2] . "\n";
+$playerinfo->{thresholds}->{MP21} = int($ranklbtarget[2]);
+
+# assign IPR for players based on Matchplay lower bound
+my @rankrosterplayers = (0,0,0,0,0,0,0);
+my @rankallplayers = (0,0,0,0,0,0,0);
+foreach my $playername (keys(%$players)) {
+	my $MP_IPR = 0;
+	if ($players->{$playername}->{MP}->{lower_bound}) {
+		my $lb = $players->{$playername}->{MP}->{lower_bound};
+		if ($lb > $ranklbtarget[6]) {
+			$MP_IPR = 6;
+		}
+		elsif ($lb > $ranklbtarget[5]) {
+			$MP_IPR = 5;
+		}
+		elsif ($lb > $ranklbtarget[4]) {
+			$MP_IPR = 4;
+		}
+		elsif ($lb > $ranklbtarget[3]) {
+			$MP_IPR = 3;
+		}
+		elsif ($lb > $ranklbtarget[2]) {
+			$MP_IPR = 2;
+		}
+		else {
+			$MP_IPR = 1;
+		}
+	}
+	else {
+		$MP_IPR = 1;
+	}
+	$players->{$playername}->{MP}->{IPR} = $MP_IPR;
+	
+	# if not already assigned an IPR based on IFPA rank
+	if (!($players->{$playername}->{IPR})) {
+		$players->{$playername}->{IPR} = $MP_IPR;
+	}
+	
+	# get totals for roster players and all players
+	if ($players->{$playername}->{team} && !(index($players->{$playername}->{team}, "PDX-") == 0)) {
+		$rankrosterplayers[$players->{$playername}->{IPR}] +=1;
 		$rankallplayers[$players->{$playername}->{IPR}] +=1;
 	}
 	else {
 		$rankallplayers[$players->{$playername}->{IPR}] +=1;
 	}
 }
+
+# print calculated ranges for roster players
 print "IPR, Roster Players, %\n";
 my $rosterplayertotal = 0;
 my $rosterpercenttotal = 0;
@@ -409,6 +508,7 @@ for (my $i=6; $i > 0; $i--) {
 print "-----";
 print $rosterplayertotal . ", " . $rosterpercenttotal . "%\n";
 
+# print stats for all known players
 print "IPR, All Players, %\n";
 my $allplayertotal = 0;
 my $allpercenttotal = 0;
