@@ -291,7 +291,7 @@ sub readIPRCSV {
 	# my $MNPIPRURL = "https://raw.githubusercontent.com/mondaynightpinball/data-archive/master/season-13/IPR.csv";
 	my $MNPIPRURL = "http://pinballstats.info/search/IPR.csv";
 	my $MNPIPRPage = "";
-	$ua->timeout(10);
+	$ua->timeout(5);
 	$res = $ua->request(HTTP::Request->new(GET => $MNPIPRURL));
 	if ($debugmode){ print("DEBUG: GET " . $MNPIPRURL . ": " . $res->status_line . "\n"); }
 	if ($res->is_success) {
@@ -364,7 +364,7 @@ sub getTeamInfo {
 	#my $MNPPlayerDBURL = "https://raw.githubusercontent.com/Invader-Zim/mnp-data-archive/master/season-$season/rosters.csv";
 	my $MNPPlayerDBURL = "https://mondaynightpinball.com/rosters.csv";
 	my $MNPPlayerDBPage = "";
-	$ua->timeout(10);
+	$ua->timeout(5);
 	$res = $ua->request(HTTP::Request->new(GET => $MNPPlayerDBURL));
 	if ($debugmode){ print("DEBUG: GET " . $MNPPlayerDBURL . ": " . $res->status_line . "\n"); }
 	if ($res->is_success) {
@@ -387,7 +387,7 @@ sub getTeamInfo {
 	# my $MNPTeamsURL = "https://raw.githubusercontent.com/mondaynightpinball/data-archive/master/season-$season/teams.csv";
 	my $MNPTeamsURL = "https://raw.githubusercontent.com/Invader-Zim/mnp-data-archive/master/season-$season/teams.csv";
 	my $MNPTeamsPage = "";
-	$ua->timeout(10);
+	$ua->timeout(5);
 	$res = $ua->request(HTTP::Request->new(GET => $MNPTeamsURL));
 	if ($debugmode){ print("DEBUG: GET " . $MNPTeamsURL . ": " . $res->status_line . "\n"); }
 	if ($res->is_success) {
@@ -421,7 +421,7 @@ sub getTeamInfo {
 	
 	my $MNPVenuesURL = "https://raw.githubusercontent.com/Invader-Zim/mnp-data-archive/master/season-$season/venues.csv";
 	my $MNPVenuesPage = "";
-	$ua->timeout(10);
+	$ua->timeout(5);
 	$res = $ua->request(HTTP::Request->new(GET => $MNPVenuesURL));
 	if ($debugmode){ print("DEBUG: GET " . $MNPVenuesURL . ": " . $res->status_line . "\n"); }
 	if ($res->is_success) {
@@ -1007,7 +1007,7 @@ sub resultsMissingIPR {
 		# get new subs who have played since last update
 		my $MNPMatchWeekURL = "https://www.mondaynightpinball.com/match_summary/mnp-$season-$i.json";
 		my $MNPMatchWeekPage = "";
-		$ua->timeout(10);
+		$ua->timeout(5);
 		$res = $ua->request(HTTP::Request->new(GET => $MNPMatchWeekURL));
 		if ($debugmode){ print("DEBUG: GET " . $MNPMatchWeekURL . ": " . $res->status_line . "\n"); }
 		if ($res->is_success) {
@@ -1059,7 +1059,7 @@ sub resultsMissingIPR {
 			# get new subs who have played since last update
 			my $MNPMatchWeekURL = "https://www.mondaynightpinball.com/match_summary/mnp-$season-$i.json";
 			my $MNPMatchWeekPage = "";
-			$ua->timeout(10);
+			$ua->timeout(5);
 			$res = $ua->request(HTTP::Request->new(GET => $MNPMatchWeekURL));
 			if ($debugmode){ print("DEBUG: GET " . $MNPMatchWeekURL . ": " . $res->status_line . "\n"); }
 			if ($res->is_success) {
@@ -1146,7 +1146,7 @@ sub playerInfoDump {
 		# get new subs who have played since last update
 		my $MNPMatchWeekURL = "https://www.mondaynightpinball.com/match_summary/mnp-$season-$i.json";
 		my $MNPMatchWeekPage = "";
-		$ua->timeout(10);
+		$ua->timeout(5);
 		$res = $ua->request(HTTP::Request->new(GET => $MNPMatchWeekURL));
 		if ($debugmode){ print("DEBUG: GET " . $MNPMatchWeekURL . ": " . $res->status_line . "\n"); }
 		if ($res->is_success) {
@@ -1194,7 +1194,7 @@ sub playerInfoDump {
 			# get new subs who have played since last update
 			my $MNPMatchWeekURL = "https://www.mondaynightpinball.com/match_summary/mnp-$season-$i.json";
 			my $MNPMatchWeekPage = "";
-			$ua->timeout(10);
+			$ua->timeout(5);
 			$res = $ua->request(HTTP::Request->new(GET => $MNPMatchWeekURL));
 			if ($debugmode){ print("DEBUG: GET " . $MNPMatchWeekURL . ": " . $res->status_line . "\n"); }
 			if ($res->is_success) {
