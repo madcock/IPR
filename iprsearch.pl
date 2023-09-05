@@ -32,7 +32,7 @@ my $currentdate = $dtCurrent->ymd;
 my $NWPAS = 0;
 
 # what season of MNP is it?
-my $season = 17;
+my $season = 18;
 
 # json utility object
 my $json = new JSON::XS;
@@ -304,7 +304,7 @@ sub readIPRCSV {
 			$searchinfo->{players}->{$playername}->{IPR} = $mnpIPR;
 		}
 	}
-	else { print("<FONT COLOR=\"#ff0000\">" . $res->status_line . "</FONT>\n"); }
+	else { print("<FONT COLOR=\"#ff0000\">ERROR [cannot read " . $MNPIPRURL . "]: " . $res->status_line . "</FONT>\n"); }
 }
 
 # return total elapsed time
@@ -382,7 +382,7 @@ sub getTeamInfo {
 			}
 		}
 	}
-	else { print("<FONT COLOR=\"#ff0000\">" . $res->status_line . "</FONT>\n"); }
+	else { print("<FONT COLOR=\"#ff0000\">ERROR [cannot read " . $MNPPlayerDBURL . "]: " . $res->status_line . "</FONT>\n"); }
 	
 	# my $MNPTeamsURL = "https://raw.githubusercontent.com/mondaynightpinball/data-archive/master/season-$season/teams.csv";
 	my $MNPTeamsURL = "https://raw.githubusercontent.com/Invader-Zim/mnp-data-archive/master/season-$season/teams.csv";
@@ -401,7 +401,7 @@ sub getTeamInfo {
 			$teaminfo->{team}->{$teamcode}->{division} = $division;
 		}
 	}
-	else { print("<FONT COLOR=\"#ff0000\">" . $res->status_line . "</FONT>\n"); }
+	else { print("<FONT COLOR=\"#ff0000\">ERROR [cannot read " . $MNPTeamsURL . "]: " . $res->status_line . "</FONT>\n"); }
 	
 	# my $MNPVenuesURL = "https://raw.githubusercontent.com/mondaynightpinball/data-archive/master/season-$season/venues.json";
 	# my $MNPVenuesPage = "";
@@ -432,7 +432,7 @@ sub getTeamInfo {
 			$teaminfo->{venue}->{$venuecode}->{name} = $venuename;
 		}
 	}
-	else { print("<FONT COLOR=\"#ff0000\">" . $res->status_line . "</FONT>\n"); }
+	else { print("<FONT COLOR=\"#ff0000\">ERROR [cannot read " . $MNPVenuesURL . "]: " . $res->status_line . "</FONT>\n"); }
 	
 	foreach my $playername (keys(%{$searchinfo->{players}})) {
 		if (!exists($searchinfo->{players}->{$playername}->{IFPA_ID}) &&
@@ -448,6 +448,8 @@ sub getTeamInfo {
 		if (!$IFPAdateupdated && !$MPdateupdated && !($teaminfo->{player}->{lc($playername)}->{teamcode})) {
 			$teaminfo->{player}->{lc($playername)}->{teamcode} = "MNP";
 			$teaminfo->{team}->{"MNP"}->{name} = "legacy player";
+			$teaminfo->{player}->{lc($playername)}->{name} = $playername;
+			# $teaminfo->{player}->{lc($playername)}->{role} = "P";
 		}
 	}
 }
@@ -601,7 +603,7 @@ sub queryIFPA {
 			exit 0;
 		}
 	}
-	else { print("<FONT COLOR=\"#ff0000\">" . $res->status_line . "</FONT>\n"); }
+	else { print("<FONT COLOR=\"#ff0000\">ERROR [cannot read " . $IFPAURL . "]: " . $res->status_line . "</FONT>\n"); }
 	
 	# get Matchplay ratings for IFPA ID
 	my $matchplayPage = "";
@@ -673,7 +675,7 @@ sub queryIFPA {
 		&calculateIPR($playername);
 		$addedtocache = 1;
 	}
-	else { print("<FONT COLOR=\"#ff0000\">" . $res->status_line . "</FONT>\n"); }
+	else { print("<FONT COLOR=\"#ff0000\">ERROR [cannot read " . $matchplayURL . "]: " . $res->status_line . "</FONT>\n"); }
 }
 
 # query externally for player name
@@ -722,12 +724,12 @@ sub queryName {
 						&calculateIPR($playername);
 						$addedtocache++;
 					}
-					else { print("<FONT COLOR=\"#ff0000\">" . $res->status_line . "</FONT>\n"); }
+					else { print("<FONT COLOR=\"#ff0000\">ERROR [cannot read " . $matchplayURL . "]: " . $res->status_line . "</FONT>\n"); }
 				}
 			}
 		}
 	}
-	else { print("<FONT COLOR=\"#ff0000\">" . $res->status_line . "</FONT>\n"); }
+	else { print("<FONT COLOR=\"#ff0000\">ERROR [cannot read " . $IFPAURL . "]: " . $res->status_line . "</FONT>\n"); }
 	
 	
 	# get Matchplay ratings for player names
@@ -838,7 +840,7 @@ sub queryName {
 				}
 			}
 		}
-		else { print("<FONT COLOR=\"#ff0000\">" . $res->status_line . "</FONT>\n"); }
+		else { print("<FONT COLOR=\"#ff0000\">ERROR [cannot read " . $IFPAURL . "]: " . $res->status_line . "</FONT>\n"); }
 	}
 }
 
@@ -960,7 +962,7 @@ sub resultsPictures {
 sub resultsTeam {
 	my @teamcachedresults;
 	foreach my $playername (keys(%{$teaminfo->{player}})) {
-		if (lc($teaminfo->{player}->{$playername}->{teamcode}) eq lc($team)) {
+		if (lc($teaminfo->{player}->{lc($playername)}->{teamcode}) eq lc($team)) {
 			push @teamcachedresults, $teaminfo->{player}->{$playername}->{name};	# found a match
 		}
 	}
@@ -1049,7 +1051,7 @@ sub resultsMissingIPR {
 			$foundlast = 1;
 			last;
 		}
-		else { print("<FONT COLOR=\"#ff0000\">" . $res->status_line . "</FONT>\n"); }
+		else { print("<FONT COLOR=\"#ff0000\">ERROR [cannot read " . $MNPMatchWeekURL . "]: " . $res->status_line . "</FONT>\n"); }
 	}
 	
 	if (!$foundlast) {
@@ -1097,7 +1099,7 @@ sub resultsMissingIPR {
 				$foundlast = 1;
 				last;
 			}
-			else { print("<FONT COLOR=\"#ff0000\">" . $res->status_line . "</FONT>\n"); }
+			else { print("<FONT COLOR=\"#ff0000\">ERROR [cannot read " . $MNPMatchWeekURL . "]: " . $res->status_line . "</FONT>\n"); }
 		}
 	}
 
@@ -1184,7 +1186,7 @@ sub playerInfoDump {
 			$foundlast = 1;
 			last;
 		}
-		else { print("<FONT COLOR=\"#ff0000\">" . $res->status_line . "</FONT>\n"); }
+		else { print("<FONT COLOR=\"#ff0000\">ERROR [cannot read " . $MNPMatchWeekURL . "]: " . $res->status_line . "</FONT>\n"); }
 	}
 	
 	if (!$foundlast) {
@@ -1228,7 +1230,7 @@ sub playerInfoDump {
 				$foundlast = 1;
 				last;
 			}
-			else { print("<FONT COLOR=\"#ff0000\">" . $res->status_line . "</FONT>\n"); }
+			else { print("<FONT COLOR=\"#ff0000\">ERROR [cannot read " . $MNPMatchWeekURL . "]: " . $res->status_line . "</FONT>\n"); }
 		}
 	}
 	
